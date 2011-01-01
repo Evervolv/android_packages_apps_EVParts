@@ -35,14 +35,14 @@ implements SharedPreferences.OnSharedPreferenceChangeListener {
 		mUseRotaryLockPref = (CheckBoxPreference)prefSet.findPreference(LOCKSCREEN_ROTARY_LOCK);
 		mUseRotaryLockPref.setChecked(Settings.System.getInt(getContentResolver(), Settings.System.USE_ROTARY_LOCKSCREEN, 0) != 0);		
 
-		mCarrierCaption = (EditTextPreference) findPreference(CARRIER_CAP);
+		mCarrierCaption = (EditTextPreference)prefSet.findPreference(CARRIER_CAP);
 
 		getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
     }	
     
 	
 	public boolean onDialogClosed() {
-		//Log.i("EVPARTS","onDialogClosed()");
+
 		return false;
 	}
 
@@ -52,6 +52,7 @@ implements SharedPreferences.OnSharedPreferenceChangeListener {
         if (preference == mUseRotaryLockPref) {
             value = mUseRotaryLockPref.isChecked();
             Settings.System.putInt(getContentResolver(), Settings.System.USE_ROTARY_LOCKSCREEN, value ? 1 : 0);
+            //Temporary hack to fix Phone FC's when swapping styles.
             ActivityManager am = (ActivityManager)getSystemService(
                     Context.ACTIVITY_SERVICE);
             am.forceStopPackage("com.android.phone");
@@ -60,12 +61,14 @@ implements SharedPreferences.OnSharedPreferenceChangeListener {
     }
 	
 	@Override
-	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences,
-			String key) {
-		//Log.i("EVPARTS","onSharedPreferenceChanged()" + key);
+	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+		
 		if (CARRIER_CAP.equals(key)) {
 			Settings.System.putString(getContentResolver(),CARRIER_CAP, sharedPreferences.getString(CARRIER_CAP, ""));
-			Log.i("EVPARTS","onSharedPreferenceChanged()" + key + "IFSTATE-" + sharedPreferences.getString(CARRIER_CAP, ""));
+			//Didn't i say i was learning?
+            ActivityManager am = (ActivityManager)getSystemService(
+                    Context.ACTIVITY_SERVICE);
+            am.forceStopPackage("com.android.phone");
 		}
 		
 	}
