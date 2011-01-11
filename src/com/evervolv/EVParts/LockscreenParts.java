@@ -1,8 +1,8 @@
 package com.evervolv.EVParts;
 
 
-import com.android.spare_parts.R;
-import com.android.spare_parts.R.xml;
+import com.evervolv.EVParts.R;
+import com.evervolv.EVParts.R.xml;
 
 import android.app.ActivityManager;
 import android.content.Context;

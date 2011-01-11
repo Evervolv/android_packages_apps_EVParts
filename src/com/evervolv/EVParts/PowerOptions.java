@@ -1,9 +1,9 @@
 package com.evervolv.EVParts;
 
-import com.android.spare_parts.R;
-import com.android.spare_parts.R.drawable;
-import com.android.spare_parts.R.id;
-import com.android.spare_parts.R.layout;
+import com.evervolv.EVParts.R;
+import com.evervolv.EVParts.R.drawable;
+import com.evervolv.EVParts.R.id;
+import com.evervolv.EVParts.R.layout;
 
 import android.app.Activity;
 import android.app.Dialog;
