@@ -68,22 +68,32 @@
 
     <!-- New Settings strings added for Evervolv Customization -->
     <string name="custom_settings">Customizable Settings</string>
-    <string name="settings_lockscreen">Lockscreen Settings</string>
-    <string name="settings_lockscreen_summary">Customize your lockscreen</string>
 
+    <!-- Launcher -->
     <string name="settings_launcher">Launcher Settings</string>
     <string name="settings_launcher_summary">Customize your launcher</string>
     <string name="select_farright_button">Select far right action button.</string>
-
     <string name="title_general_use_stock_launcher">Use Stock Launcher Layout</string>
     <string name="summary_on_general_use_stock_launcher">Stock launcher layout will be used.</string>
     <string name="summary_off_general_use_stock_launcher">Evervolv Launcher layout will be used.</string>	
 
     <string name="group_applications">Applications</string>
 
-    <string name="title_general_use_rotary_lockscreen">Use Rotary Lockscreen</string>
+    <!-- Lockscreen -->
+    <string name="settings_lockscreen">Lockscreen Settings</string>
+    <string name="settings_lockscreen_summary">Customize your lockscreen</string>
+    <string name="title_general_use_rotary_lockscreen">Use Rotary Lockscreen?</string>
     <string name="summary_on_general_use_rotary_lockscreen">Rotary lockscreen will be used</string>
     <string name="summary_off_general_use_rotary_lockscreen">Rotary lockscreen will not be used</string>
 
+    <!-- UiOptions -->
+    <string name="settings_uioptions">Ui Settings</string>
+    <string name="settings_uioptions_summary">Customize your Ui</string>
+    <string name="title_use_screenon_anim">Use Screen On Animation?</string>
+    <string name="summary_on_use_screenon_anim">Screen On Animation will be used</string>
+    <string name="summary_off_use_screenon_anim">Screen On Animation will not be used</string>
+    <string name="title_use_screenoff_anim">Use Screen Off Animation?</string>
+    <string name="summary_on_use_screenoff_anim">Screen Off Animation will be used</string>
+    <string name="summary_off_use_screenoff_anim">Screen Off Animation will not be used</string>
 
 </resources>

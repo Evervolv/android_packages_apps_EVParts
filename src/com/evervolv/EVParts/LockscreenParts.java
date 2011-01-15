@@ -60,7 +60,7 @@ implements SharedPreferences.OnSharedPreferenceChangeListener {
                     Context.ACTIVITY_SERVICE);
             am.forceStopPackage("com.android.phone");
         }
-        return false;
+        return true;
     }
 	
 	@Override
