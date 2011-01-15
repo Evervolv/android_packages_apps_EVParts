@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
+import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.EditTextPreference;
@@ -20,7 +21,7 @@ import android.util.Log;
 import android.provider.Settings;
 
 
-public class UiOptions extends PreferenceActivity {
+public class UiOptions extends PreferenceActivity implements OnPreferenceChangeListener {
 
 	private static final String USE_SCREENOFF_ANIM = "use_screenoff_anim";
 	private static final String USE_SCREENON_ANIM = "use_screenon_anim";
@@ -28,6 +29,8 @@ public class UiOptions extends PreferenceActivity {
 	
 	private CheckBoxPreference mUseScreenOnAnim;
 	private CheckBoxPreference mUseScreenOffAnim;
+	private ListPreference mBatteryOption;
+	
 	
 	@Override
     public void onCreate(Bundle savedInstanceState) {	
@@ -39,7 +42,9 @@ public class UiOptions extends PreferenceActivity {
 		mUseScreenOnAnim.setChecked(Settings.System.getInt(getContentResolver(), Settings.System.USE_SCREENON_ANIM, 1) == 1);
 		mUseScreenOffAnim = (CheckBoxPreference)prefSet.findPreference(USE_SCREENOFF_ANIM);
 		mUseScreenOffAnim.setChecked(Settings.System.getInt(getContentResolver(), Settings.System.USE_SCREENOFF_ANIM, 1) == 1);		
-
+		
+		mBatteryOption = (ListPreference) prefSet.findPreference(BATTERY_OPTION);
+		mBatteryOption.setOnPreferenceChangeListener(this);
     }
 
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
@@ -58,7 +63,13 @@ public class UiOptions extends PreferenceActivity {
         return true;
     }
 
-
+    public boolean onPreferenceChange(Preference preference, Object objValue) {
+        if (preference == mBatteryOption) {;
+        	Settings.System.putInt(getContentResolver(), Settings.System.BATTERY_OPTION, Integer.valueOf((String) objValue));
+        }
+        // always let the preference setting proceed.
+        return true;
+    }
     
 
 }

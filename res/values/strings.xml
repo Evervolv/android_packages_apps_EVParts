@@ -89,11 +89,19 @@
     <!-- UiOptions -->
     <string name="settings_uioptions">Ui Settings</string>
     <string name="settings_uioptions_summary">Customize your Ui</string>
+
     <string name="title_use_screenon_anim">Use Screen On Animation?</string>
     <string name="summary_on_use_screenon_anim">Screen On Animation will be used</string>
     <string name="summary_off_use_screenon_anim">Screen On Animation will not be used</string>
+
     <string name="title_use_screenoff_anim">Use Screen Off Animation?</string>
     <string name="summary_on_use_screenoff_anim">Screen Off Animation will be used</string>
     <string name="summary_off_use_screenoff_anim">Screen Off Animation will not be used</string>
+
+    <string name="battery_option_dialog_title">Battery</string>
+    <string name="battery_option_title">Battery type</string>
+    <string name="battery_option_summary">Choose the battery type to use (Requires reboot)</string>
+
+
 
 </resources>
