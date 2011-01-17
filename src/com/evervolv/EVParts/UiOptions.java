@@ -55,7 +55,7 @@ public class UiOptions extends PreferenceActivity implements OnPreferenceChangeL
 		mHideClock.setChecked(Settings.System.getInt(getContentResolver(), Settings.System.SHOW_STATUS_CLOCK, 1) == 0);
 		mHideAmPm = (CheckBoxPreference) prefSet.findPreference(AM_PM_PREF);
 		mHideAmPm.setOnPreferenceChangeListener(this);
-		mHideAmPm.setChecked(Settings.System.getInt(getContentResolver(), Settings.System.SHOW_TWELVE_HOUR_CLOCK_PERIOD, 0) == 0);
+		mHideAmPm.setChecked(Settings.System.getInt(getContentResolver(), Settings.System.SHOW_TWELVE_HOUR_CLOCK_PERIOD, 1) == 0);
 		
     }
 
