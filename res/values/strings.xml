@@ -90,6 +90,9 @@
     <string name="settings_uioptions">Ui Settings</string>
     <string name="settings_uioptions_summary">Customize your Ui</string>
 
+    <string name="ui_category_general_title">General</string>
+    <string name="ui_category_statusbar_title">Statusbar</string>
+
     <string name="title_use_screenon_anim">Use Screen On Animation?</string>
     <string name="summary_on_use_screenon_anim">Screen On Animation will be used</string>
     <string name="summary_off_use_screenon_anim">Screen On Animation will not be used</string>
@@ -102,6 +105,14 @@
     <string name="battery_option_title">Battery type</string>
     <string name="battery_option_summary">Choose the battery type to use (Requires reboot)</string>
 
-
+    <string name="clock_title">Clock</string>
+    <string name="title_show_clock">Show clock</string>
+    <string name="title_clock_color">Clock color</string>
+    <string name="hide_clock_title">Hide the clock</string>
+    <string name="hide_clock_on"> Clock is hidden</string>
+    <string name="hide_clock_off"> Clock is visible</string>
+    <string name="hide_ampm_title">Hide AM/PM in clock</string>
+    <string name="hide_ampm_on"> AM/PM is hidden</string>
+    <string name="hide_ampm_off"> AM/PM is visible</string>
 
 </resources>

@@ -26,7 +26,11 @@ public class UiOptions extends PreferenceActivity implements OnPreferenceChangeL
 	private static final String USE_SCREENOFF_ANIM = "use_screenoff_anim";
 	private static final String USE_SCREENON_ANIM = "use_screenon_anim";
 	private static final String BATTERY_OPTION = "battery_option";
-	
+    private static final String HIDE_CLOCK_PREF = "hide_clock";
+    private static final String AM_PM_PREF = "hide_ampm";
+    
+    private CheckBoxPreference mHideClock;
+    private CheckBoxPreference mHideAmPm;
 	private CheckBoxPreference mUseScreenOnAnim;
 	private CheckBoxPreference mUseScreenOffAnim;
 	private ListPreference mBatteryOption;
@@ -45,6 +49,14 @@ public class UiOptions extends PreferenceActivity implements OnPreferenceChangeL
 		
 		mBatteryOption = (ListPreference) prefSet.findPreference(BATTERY_OPTION);
 		mBatteryOption.setOnPreferenceChangeListener(this);
+		
+		mHideClock = (CheckBoxPreference) prefSet.findPreference(HIDE_CLOCK_PREF);
+		mHideClock.setOnPreferenceChangeListener(this);
+		mHideClock.setChecked(Settings.System.getInt(getContentResolver(), Settings.System.SHOW_STATUS_CLOCK, 1) == 0);
+		mHideAmPm = (CheckBoxPreference) prefSet.findPreference(AM_PM_PREF);
+		mHideAmPm.setOnPreferenceChangeListener(this);
+		mHideAmPm.setChecked(Settings.System.getInt(getContentResolver(), Settings.System.SHOW_TWELVE_HOUR_CLOCK_PERIOD, 0) == 0);
+		
     }
 
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
@@ -53,9 +65,7 @@ public class UiOptions extends PreferenceActivity implements OnPreferenceChangeL
         if (preference == mUseScreenOnAnim) {
         	value = mUseScreenOnAnim.isChecked();
             Settings.System.putInt(getContentResolver(), Settings.System.USE_SCREENON_ANIM, value ? 1 : 0);
-        }
-        
-        if (preference == mUseScreenOffAnim) {
+        } else if (preference == mUseScreenOffAnim) {
         	value = mUseScreenOffAnim.isChecked();
             Settings.System.putInt(getContentResolver(), Settings.System.USE_SCREENOFF_ANIM, value ? 1 : 0);
         }
@@ -64,8 +74,12 @@ public class UiOptions extends PreferenceActivity implements OnPreferenceChangeL
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
-        if (preference == mBatteryOption) {;
+        if (preference == mBatteryOption) {
         	Settings.System.putInt(getContentResolver(), Settings.System.BATTERY_OPTION, Integer.valueOf((String) objValue));
+        } else if (preference == mHideClock) {
+    	    Settings.System.putInt(getContentResolver(), Settings.System.SHOW_STATUS_CLOCK, mHideClock.isChecked() ? 1 : 0);
+    	} else if (preference == mHideAmPm) {
+    	    Settings.System.putInt(getContentResolver(), Settings.System.SHOW_TWELVE_HOUR_CLOCK_PERIOD, mHideAmPm.isChecked() ? 1 : 0);
         }
         // always let the preference setting proceed.
         return true;
