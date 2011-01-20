@@ -52,10 +52,10 @@ public class UiOptions extends PreferenceActivity implements OnPreferenceChangeL
 		
 		mHideClock = (CheckBoxPreference) prefSet.findPreference(HIDE_CLOCK_PREF);
 		mHideClock.setOnPreferenceChangeListener(this);
-		mHideClock.setChecked(Settings.System.getInt(getContentResolver(), Settings.System.SHOW_STATUS_CLOCK, 1) == 0);
+		mHideClock.setChecked(Settings.System.getInt(getContentResolver(), Settings.System.SHOW_CLOCK, 1) == 0);
 		mHideAmPm = (CheckBoxPreference) prefSet.findPreference(AM_PM_PREF);
 		mHideAmPm.setOnPreferenceChangeListener(this);
-		mHideAmPm.setChecked(Settings.System.getInt(getContentResolver(), Settings.System.SHOW_TWELVE_HOUR_CLOCK_PERIOD, 1) == 0);
+		mHideAmPm.setChecked(Settings.System.getInt(getContentResolver(), Settings.System.SHOW_CLOCK_AMPM, 1) == 0);
 		
     }
 
@@ -77,9 +77,9 @@ public class UiOptions extends PreferenceActivity implements OnPreferenceChangeL
         if (preference == mBatteryOption) {
         	Settings.System.putInt(getContentResolver(), Settings.System.BATTERY_OPTION, Integer.valueOf((String) objValue));
         } else if (preference == mHideClock) {
-    	    Settings.System.putInt(getContentResolver(), Settings.System.SHOW_STATUS_CLOCK, mHideClock.isChecked() ? 1 : 0);
+    	    Settings.System.putInt(getContentResolver(), Settings.System.SHOW_CLOCK, mHideClock.isChecked() ? 1 : 0);
     	} else if (preference == mHideAmPm) {
-    	    Settings.System.putInt(getContentResolver(), Settings.System.SHOW_TWELVE_HOUR_CLOCK_PERIOD, mHideAmPm.isChecked() ? 1 : 0);
+    	    Settings.System.putInt(getContentResolver(), Settings.System.SHOW_CLOCK_AMPM, mHideAmPm.isChecked() ? 1 : 0);
         }
         // always let the preference setting proceed.
         return true;
