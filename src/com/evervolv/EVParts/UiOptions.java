@@ -28,11 +28,13 @@ public class UiOptions extends PreferenceActivity implements OnPreferenceChangeL
 	private static final String BATTERY_OPTION = "battery_option";
     private static final String HIDE_CLOCK_PREF = "hide_clock";
     private static final String AM_PM_PREF = "hide_ampm";
+    private static final String USE_TRANSPARENT_STATUSBAR = "use_transparent_statusbar";
     
     private CheckBoxPreference mHideClock;
     private CheckBoxPreference mHideAmPm;
 	private CheckBoxPreference mUseScreenOnAnim;
 	private CheckBoxPreference mUseScreenOffAnim;
+	private CheckBoxPreference mUseTransparentStatusBar;
 	private ListPreference mBatteryOption;
 	
 	
@@ -49,6 +51,10 @@ public class UiOptions extends PreferenceActivity implements OnPreferenceChangeL
 		
 		mBatteryOption = (ListPreference) prefSet.findPreference(BATTERY_OPTION);
 		mBatteryOption.setOnPreferenceChangeListener(this);
+
+		mUseTransparentStatusBar = (CheckBoxPreference)prefSet.findPreference(USE_TRANSPARENT_STATUSBAR);
+		mUseTransparentStatusBar.setChecked(Settings.System.getInt(getContentResolver(), Settings.System.USE_TRANSPARENT_STATUSBAR, 1) == 1);	
+		mUseTransparentStatusBar.setOnPreferenceChangeListener(this);
 		
 		mHideClock = (CheckBoxPreference) prefSet.findPreference(HIDE_CLOCK_PREF);
 		mHideClock.setOnPreferenceChangeListener(this);
@@ -80,6 +86,8 @@ public class UiOptions extends PreferenceActivity implements OnPreferenceChangeL
     	    Settings.System.putInt(getContentResolver(), Settings.System.SHOW_CLOCK, mHideClock.isChecked() ? 1 : 0);
     	} else if (preference == mHideAmPm) {
     	    Settings.System.putInt(getContentResolver(), Settings.System.SHOW_CLOCK_AMPM, mHideAmPm.isChecked() ? 1 : 0);
+    	} else if (preference == mUseTransparentStatusBar) {
+    	    Settings.System.putInt(getContentResolver(), Settings.System.USE_TRANSPARENT_STATUSBAR, mHideAmPm.isChecked() ? 1 : 0);
         }
         // always let the preference setting proceed.
         return true;
