@@ -20,7 +20,6 @@ import android.widget.Toast;
 import android.util.Log;
 import android.provider.Settings;
 
-
 public class UiOptions extends PreferenceActivity implements OnPreferenceChangeListener {
 
 	private static final String USE_SCREENOFF_ANIM = "use_screenoff_anim";
@@ -36,7 +35,6 @@ public class UiOptions extends PreferenceActivity implements OnPreferenceChangeL
 	private CheckBoxPreference mUseScreenOffAnim;
 	private CheckBoxPreference mUseTransparentStatusBar;
 	private ListPreference mBatteryOption;
-	
 	
 	@Override
     public void onCreate(Bundle savedInstanceState) {	
@@ -54,22 +52,28 @@ public class UiOptions extends PreferenceActivity implements OnPreferenceChangeL
 
 		mUseTransparentStatusBar = (CheckBoxPreference)prefSet.findPreference(USE_TRANSPARENT_STATUSBAR);
 		mUseTransparentStatusBar.setChecked(Settings.System.getInt(getContentResolver(), Settings.System.USE_TRANSPARENT_STATUSBAR, 1) == 1);	
-		mUseTransparentStatusBar.setOnPreferenceChangeListener(this);
 		
 		mHideClock = (CheckBoxPreference) prefSet.findPreference(HIDE_CLOCK_PREF);
-		mHideClock.setOnPreferenceChangeListener(this);
-		mHideClock.setChecked(Settings.System.getInt(getContentResolver(), Settings.System.SHOW_CLOCK, 1) == 0);
+		mHideClock.setChecked(Settings.System.getInt(getContentResolver(), Settings.System.SHOW_CLOCK, 1) == 1);
 		mHideAmPm = (CheckBoxPreference) prefSet.findPreference(AM_PM_PREF);
-		mHideAmPm.setOnPreferenceChangeListener(this);
-		mHideAmPm.setChecked(Settings.System.getInt(getContentResolver(), Settings.System.SHOW_CLOCK_AMPM, 1) == 0);
+		mHideAmPm.setChecked(Settings.System.getInt(getContentResolver(), Settings.System.SHOW_CLOCK_AMPM, 1) == 1);
 		
     }
-
+	
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         boolean value;
         
-        if (preference == mUseScreenOnAnim) {
-        	value = mUseScreenOnAnim.isChecked();
+        if (preference == mHideClock) {
+        	value = mHideClock.isChecked();
+    	    Settings.System.putInt(getContentResolver(), Settings.System.SHOW_CLOCK, value ? 1 : 0);
+    	} else if (preference == mHideAmPm) {
+    		value = mHideAmPm.isChecked();
+    	    Settings.System.putInt(getContentResolver(), Settings.System.SHOW_CLOCK_AMPM, value ? 1 : 0);
+    	} else if (preference == mUseTransparentStatusBar) {
+    		value = mUseTransparentStatusBar.isChecked();
+    	    Settings.System.putInt(getContentResolver(), Settings.System.USE_TRANSPARENT_STATUSBAR, value ? 1 : 0);
+    	} else if (preference == mUseScreenOnAnim) {
+    		value = 	mUseScreenOnAnim.isChecked();
             Settings.System.putInt(getContentResolver(), Settings.System.USE_SCREENON_ANIM, value ? 1 : 0);
         } else if (preference == mUseScreenOffAnim) {
         	value = mUseScreenOffAnim.isChecked();
@@ -78,16 +82,10 @@ public class UiOptions extends PreferenceActivity implements OnPreferenceChangeL
         
         return true;
     }
-
+    
     public boolean onPreferenceChange(Preference preference, Object objValue) {
         if (preference == mBatteryOption) {
         	Settings.System.putInt(getContentResolver(), Settings.System.BATTERY_OPTION, Integer.valueOf((String) objValue));
-        } else if (preference == mHideClock) {
-    	    Settings.System.putInt(getContentResolver(), Settings.System.SHOW_CLOCK, mHideClock.isChecked() ? 1 : 0);
-    	} else if (preference == mHideAmPm) {
-    	    Settings.System.putInt(getContentResolver(), Settings.System.SHOW_CLOCK_AMPM, mHideAmPm.isChecked() ? 1 : 0);
-    	} else if (preference == mUseTransparentStatusBar) {
-    	    Settings.System.putInt(getContentResolver(), Settings.System.USE_TRANSPARENT_STATUSBAR, mHideAmPm.isChecked() ? 1 : 0);
         }
         // always let the preference setting proceed.
         return true;

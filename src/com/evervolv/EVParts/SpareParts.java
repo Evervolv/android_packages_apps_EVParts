@@ -21,10 +21,7 @@ import android.content.SharedPreferences;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.os.Bundle;
-
-
 import java.util.List;
-
 import com.evervolv.EVParts.R;
 import com.evervolv.EVParts.R.array;
 import com.evervolv.EVParts.R.xml;
@@ -34,7 +31,6 @@ public class SpareParts extends PreferenceActivity
         SharedPreferences.OnSharedPreferenceChangeListener {
     private static final String TAG = "EVParts";
 
-
     
     @Override
     public void onCreate(Bundle icicle) {
@@ -42,8 +38,6 @@ public class SpareParts extends PreferenceActivity
         addPreferencesFromResource(R.xml.spare_parts);
 
     }
-
-
 
 	@Override
 	public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -58,6 +52,5 @@ public class SpareParts extends PreferenceActivity
 			String key) {
 		// TODO Auto-generated method stub
 		
-	}
-
+	}	
 }
