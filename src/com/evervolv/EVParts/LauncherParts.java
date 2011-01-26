@@ -47,13 +47,13 @@ implements SharedPreferences.OnSharedPreferenceChangeListener , OnClickListener,
 		addPreferencesFromResource(R.xml.launcher_prefs);
 		getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
 		PreferenceScreen prefSet = getPreferenceScreen();
-		mFLAB = (ListPreference) findPreference("launcher_farlefttab");
-		mFLAB.setEnabled(false);
-		mFLAB.setSummary(Settings.System.getString(getContentResolver(), Settings.System.FARLEFT_AB));
-		mFRAB = (ListPreference) findPreference("launcher_farrightab");
-		mFRAB.setEnabled(false);
-		mNumLauncherButtons = (ListPreference) findPreference("launcher_numlauncherbuttons");
-		mNumLauncherButtons.setEnabled(false);
+		//mFLAB = (ListPreference) findPreference("launcher_farlefttab");
+		//mFLAB.setEnabled(false);
+		//mFLAB.setSummary(Settings.System.getString(getContentResolver(), Settings.System.FARLEFT_AB));
+		//mFRAB = (ListPreference) findPreference("launcher_farrightab");
+		//mFRAB.setEnabled(false);
+		//mNumLauncherButtons = (ListPreference) findPreference("launcher_numlauncherbuttons");
+		//mNumLauncherButtons.setEnabled(false);
 	
 		
 		mUseStockLaunchPref = (CheckBoxPreference)prefSet.findPreference(LAUNCHER_STOCK);
@@ -61,28 +61,28 @@ implements SharedPreferences.OnSharedPreferenceChangeListener , OnClickListener,
 		
 		
 		
-		PackageManager pm = getPackageManager();
-		List<PackageInfo> packs = getPackageManager().getInstalledPackages(PackageManager.GET_ACTIVITIES);
-		int max = packs.size();
-		mAppNames = new String[max];
-		for (int i = 0; i < max; i++) {  
-           try {
-        	   Log.d("LauncherParts", "packageName: " + packs.get(i).packageName );
-        	   mAppNames[i] = packs.get(i).packageName;
-           } catch (NullPointerException e) {
-               Log.d("LauncherParts", "NullPointerException @: " + i);
-           }
+		//PackageManager pm = getPackageManager();
+		//List<PackageInfo> packs = getPackageManager().getInstalledPackages(PackageManager.GET_ACTIVITIES);
+		//int max = packs.size();
+		//mAppNames = new String[max];
+		//for (int i = 0; i < max; i++) {  
+        //   try {
+        //	   Log.d("LauncherParts", "packageName: " + packs.get(i).packageName );
+        //	   mAppNames[i] = packs.get(i).packageName;
+        //   } catch (NullPointerException e) {
+        //       Log.d("LauncherParts", "NullPointerException @: " + i);
+        //   }
     		   
-        }  
+        //}  
      
 		
-		mFLAB.setDialogTitle("Far left Action Button.");
+		//mFLAB.setDialogTitle("Far left Action Button.");
 		//mFLAB.setEntries(R.array.entries_farleftbutton);
 		//mFLAB.setEntryValues(R.array.entryvalues_farleftbutton);
 		
-		mFLAB.setEntries(mAppNames);
-		mFLAB.setEntryValues(mAppNames);
-		mFLAB.setOnPreferenceChangeListener(this);
+		//mFLAB.setEntries(mAppNames);
+		//mFLAB.setEntryValues(mAppNames);
+		//mFLAB.setOnPreferenceChangeListener(this);
 		
     }
     
@@ -106,9 +106,9 @@ implements SharedPreferences.OnSharedPreferenceChangeListener , OnClickListener,
 
 	@Override
 	public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mFLAB) {
-        	Settings.System.putString(getContentResolver(), Settings.System.FARLEFT_AB, newValue.toString());
-        }
+        //if (preference == mFLAB) {
+        //	Settings.System.putString(getContentResolver(), Settings.System.FARLEFT_AB, newValue.toString());
+        //}
         return false;
 	}
 
@@ -120,11 +120,11 @@ implements SharedPreferences.OnSharedPreferenceChangeListener , OnClickListener,
 		// TODO Auto-generated method stub
 		
 	}
-	 class Package {  
-	        private String Appname = "";
-	        private String PackagName = ""; 
-	        private Drawable icon;
-	   }  
+	class Package {  
+		private String Appname = "";
+		private String PackagName = ""; 
+		private Drawable icon;
+	}  
 }
 
  
