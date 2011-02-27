@@ -43,20 +43,25 @@ public class UiOptions extends PreferenceActivity implements OnPreferenceChangeL
 		PreferenceScreen prefSet = getPreferenceScreen();
 
 		mUseScreenOnAnim = (CheckBoxPreference)prefSet.findPreference(USE_SCREENON_ANIM);
-		mUseScreenOnAnim.setChecked(Settings.System.getInt(getContentResolver(), Settings.System.USE_SCREENON_ANIM, 1) == 1);
+		mUseScreenOnAnim.setChecked(Settings.System.getInt(getContentResolver(), 
+									Settings.System.USE_SCREENON_ANIM, 1) == 1);
 		mUseScreenOffAnim = (CheckBoxPreference)prefSet.findPreference(USE_SCREENOFF_ANIM);
-		mUseScreenOffAnim.setChecked(Settings.System.getInt(getContentResolver(), Settings.System.USE_SCREENOFF_ANIM, 1) == 1);		
+		mUseScreenOffAnim.setChecked(Settings.System.getInt(getContentResolver(), 
+									 Settings.System.USE_SCREENOFF_ANIM, 1) == 1);		
 		
 		mBatteryOption = (ListPreference) prefSet.findPreference(BATTERY_OPTION);
 		mBatteryOption.setOnPreferenceChangeListener(this);
 
 		mUseTransparentStatusBar = (CheckBoxPreference)prefSet.findPreference(USE_TRANSPARENT_STATUSBAR);
-		mUseTransparentStatusBar.setChecked(Settings.System.getInt(getContentResolver(), Settings.System.USE_TRANSPARENT_STATUSBAR, 1) == 1);	
+		mUseTransparentStatusBar.setChecked(Settings.System.getInt(getContentResolver(), 
+											Settings.System.USE_TRANSPARENT_STATUSBAR, 1) == 1);	
 		
 		mHideClock = (CheckBoxPreference) prefSet.findPreference(HIDE_CLOCK_PREF);
-		mHideClock.setChecked(Settings.System.getInt(getContentResolver(), Settings.System.SHOW_CLOCK, 1) == 1);
+		mHideClock.setChecked(Settings.System.getInt(getContentResolver(), 
+							  Settings.System.SHOW_CLOCK, 1) == 1);
 		mHideAmPm = (CheckBoxPreference) prefSet.findPreference(AM_PM_PREF);
-		mHideAmPm.setChecked(Settings.System.getInt(getContentResolver(), Settings.System.SHOW_CLOCK_AMPM, 1) == 1);
+		mHideAmPm.setChecked(Settings.System.getInt(getContentResolver(), 
+							 Settings.System.SHOW_CLOCK_AMPM, 1) == 1);
 		
     }
 	
@@ -87,7 +92,6 @@ public class UiOptions extends PreferenceActivity implements OnPreferenceChangeL
         if (preference == mBatteryOption) {
         	Settings.System.putInt(getContentResolver(), Settings.System.BATTERY_OPTION, Integer.valueOf((String) objValue));
         }
-        // always let the preference setting proceed.
         return true;
     }
     

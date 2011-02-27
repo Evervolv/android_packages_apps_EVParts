@@ -36,7 +36,8 @@ implements OnPreferenceChangeListener {
 		PreferenceScreen prefSet = getPreferenceScreen();
 		
 		mUseRotaryLockPref = (CheckBoxPreference)prefSet.findPreference(LOCKSCREEN_ROTARY_LOCK);
-		mUseRotaryLockPref.setChecked(Settings.System.getInt(getContentResolver(), Settings.System.USE_ROTARY_LOCKSCREEN, 1) == 1);		
+		mUseRotaryLockPref.setChecked(Settings.System.getInt(getContentResolver(), 
+									  Settings.System.USE_ROTARY_LOCKSCREEN, 1) == 1);		
 		
 		mCarrierCaption = (EditTextPreference)prefSet.findPreference(CARRIER_CAP);
 		mCarrierCaption.setOnPreferenceChangeListener(this);
@@ -67,7 +68,6 @@ implements OnPreferenceChangeListener {
             am.forceStopPackage("com.android.phone");
 		
         }
-        // always let the preference setting proceed.
         return true;
     }
     
