@@ -3,6 +3,7 @@
 
     	<PreferenceCategory
             	android:title="@string/ui_category_general_title"
+		android:key="pref_category_general_settings"	
 	/>
 
 		<CheckBoxPreference
@@ -18,7 +19,12 @@
 			android:summaryOn="@string/summary_on_use_screenoff_anim"
 			android:summaryOff="@string/summary_off_use_screenoff_anim" 
 		/>
-
+		<CheckBoxPreference
+			android:key="pref_trackball_wake"
+			android:title="@string/title_use_trackball_wake"
+			android:summaryOn="@string/summary_on_use_trackball_wake"
+			android:summaryOff="@string/summary_off_use_trackball_wake" 
+		/>
     	<PreferenceCategory
             	android:title="@string/ui_category_statusbar_title"
 	/>
