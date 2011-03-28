@@ -1,17 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-	<EditTextPreference
-		android:key="carrier_caption"
-		android:title="Lockscreen Carrier Caption"
-		android:summary="Change the lockscreen carrier caption."
-		android:dialogTitle="Enter lockscreen caption."
-		android:defaultValue="Evervolv" 
+    	<PreferenceCategory
+            	android:title="@string/title_lockscreen_category_general"
+		android:key="pref_lockscreen_general_category"	
 	/>
+		<EditTextPreference
+			android:key="carrier_caption"
+			android:title="Lockscreen Carrier Caption"
+			android:summary="Change the lockscreen carrier caption."
+			android:dialogTitle="Enter lockscreen caption."
+			android:defaultValue="Evervolv" 
+		/>
 
-	<CheckBoxPreference
-		android:key="use_rotary_lockscreen"
-		android:title="@string/title_general_use_rotary_lockscreen"
-		android:summaryOn="@string/summary_on_general_use_rotary_lockscreen"
-		android:summaryOff="@string/summary_off_general_use_rotary_lockscreen" 
-	/>
+		<CheckBoxPreference
+			android:key="use_rotary_lockscreen"
+			android:title="@string/title_general_use_rotary_lockscreen"
+			android:summaryOn="@string/summary_on_general_use_rotary_lockscreen"
+			android:summaryOff="@string/summary_off_general_use_rotary_lockscreen" 
+		/>
+
+		<CheckBoxPreference 
+			android:key="pref_trackball_unlock"
+			android:title="@string/title_trackball_unlock"
+			android:summaryOn="@string/summary_on_general_trackball_unlock"
+			android:summaryOff="@string/summary_off_general_trackball_unlock" 
+		/>
 </PreferenceScreen>

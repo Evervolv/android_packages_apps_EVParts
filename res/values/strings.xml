@@ -80,6 +80,7 @@
     <string name="group_applications">Applications</string>
 
     <!-- Lockscreen -->
+    <string name="title_lockscreen_category_general">General</string>
     <string name="settings_lockscreen">Lockscreen Settings</string>
     <string name="settings_lockscreen_summary">Customize your lockscreen</string>
     <string name="title_general_use_rotary_lockscreen">Use Rotary Lockscreen?</string>
@@ -126,4 +127,8 @@
     <string name="title_use_trackball_wake">Trackball wake</string>
     <string name="summary_on_use_trackball_wake">Trackball wake will be used</string>
     <string name="summary_off_use_trackball_wake">Trackball wake will not be used</string>
+
+    <string name="title_trackball_unlock">Trackball unlock</string>
+    <string name="summary_on_general_trackball_unlock">Trackball unlock will be used</string>
+    <string name="summary_off_general_trackball_unlock">Trackball unlock will not be used</string>
 </resources>

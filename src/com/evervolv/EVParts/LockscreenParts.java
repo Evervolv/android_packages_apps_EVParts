@@ -13,6 +13,7 @@ import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.EditTextPreference;
+import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.widget.Toast;
@@ -23,24 +24,41 @@ import android.provider.Settings;
 public class LockscreenParts extends PreferenceActivity
 implements OnPreferenceChangeListener {
 
+	private static final String TAG = "EVParts";
+	
 	private static final String CARRIER_CAP = "carrier_caption";
 	private static final String LOCKSCREEN_ROTARY_LOCK = "use_rotary_lockscreen";
-	
+    private static final String TRACKBALL_UNLOCK_PREF = "pref_trackball_unlock";
+    private static final String GENERAL_CATEGORY = "pref_lockscreen_general_category";
+    
 	private EditTextPreference mCarrierCaption;
 	private CheckBoxPreference mUseRotaryLockPref;
-	
+	private CheckBoxPreference mTrackballUnlockPref;
+
 	@Override
     public void onCreate(Bundle savedInstanceState) {	
 		super.onCreate(savedInstanceState);
 		addPreferencesFromResource(R.xml.lockscreen_prefs);
 		PreferenceScreen prefSet = getPreferenceScreen();
 		
+		/* Rotary lockscreen */
 		mUseRotaryLockPref = (CheckBoxPreference)prefSet.findPreference(LOCKSCREEN_ROTARY_LOCK);
 		mUseRotaryLockPref.setChecked(Settings.System.getInt(getContentResolver(), 
 									  Settings.System.USE_ROTARY_LOCKSCREEN, 1) == 1);		
-		
+		/* Carrier caption */
 		mCarrierCaption = (EditTextPreference)prefSet.findPreference(CARRIER_CAP);
 		mCarrierCaption.setOnPreferenceChangeListener(this);
+
+        /* Trackball Unlock */
+        mTrackballUnlockPref = (CheckBoxPreference) prefSet.findPreference(TRACKBALL_UNLOCK_PREF);
+        mTrackballUnlockPref.setChecked(Settings.System.getInt(getContentResolver(),
+                Settings.System.TRACKBALL_UNLOCK_SCREEN, 0) == 1);
+		PreferenceCategory generalCategory = (PreferenceCategory) prefSet
+    	.findPreference(GENERAL_CATEGORY);
+		
+		if (!getResources().getBoolean(R.bool.has_trackball)) {
+			generalCategory.removePreference(mTrackballUnlockPref);
+		}
     }	
 	
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
@@ -53,6 +71,11 @@ implements OnPreferenceChangeListener {
             ActivityManager am = (ActivityManager)getSystemService(
                     Context.ACTIVITY_SERVICE);
             am.forceStopPackage("com.android.phone");
+        } else if (preference == mTrackballUnlockPref) {
+            value = mTrackballUnlockPref.isChecked();
+            Settings.System.putInt(getContentResolver(), Settings.System.TRACKBALL_UNLOCK_SCREEN,
+                    value ? 1 : 0);
+            return true;
         }
         
         return true;

@@ -48,31 +48,33 @@ public class UiOptions extends PreferenceActivity implements OnPreferenceChangeL
 
 		mUseScreenOnAnim = (CheckBoxPreference)prefSet.findPreference(USE_SCREENON_ANIM);
 		mUseScreenOnAnim.setChecked(Settings.System.getInt(getContentResolver(), 
-									Settings.System.USE_SCREENON_ANIM, 1) == 1);
+						Settings.System.USE_SCREENON_ANIM, 1) == 1);
+		
 		mUseScreenOffAnim = (CheckBoxPreference)prefSet.findPreference(USE_SCREENOFF_ANIM);
 		mUseScreenOffAnim.setChecked(Settings.System.getInt(getContentResolver(), 
-									 Settings.System.USE_SCREENOFF_ANIM, 1) == 1);		
+						Settings.System.USE_SCREENOFF_ANIM, 1) == 1);		
 		
 		mBatteryOption = (ListPreference) prefSet.findPreference(BATTERY_OPTION);
 		mBatteryOption.setOnPreferenceChangeListener(this);
 
 		mUseTransparentStatusBar = (CheckBoxPreference)prefSet.findPreference(USE_TRANSPARENT_STATUSBAR);
 		mUseTransparentStatusBar.setChecked(Settings.System.getInt(getContentResolver(), 
-											Settings.System.USE_TRANSPARENT_STATUSBAR, 1) == 1);	
+						Settings.System.USE_TRANSPARENT_STATUSBAR, 1) == 1);	
 		
 		mHideClock = (CheckBoxPreference) prefSet.findPreference(HIDE_CLOCK_PREF);
 		mHideClock.setChecked(Settings.System.getInt(getContentResolver(), 
-							  Settings.System.SHOW_CLOCK, 0) == 1);
+						Settings.System.SHOW_CLOCK, 0) == 1);
 		mHideAmPm = (CheckBoxPreference) prefSet.findPreference(AM_PM_PREF);
 		mHideAmPm.setChecked(Settings.System.getInt(getContentResolver(), 
-							 Settings.System.SHOW_CLOCK_AMPM, 0) == 1);
+						Settings.System.SHOW_CLOCK_AMPM, 0) == 1);
 		PreferenceCategory generalCategory = (PreferenceCategory) prefSet
-                	.findPreference(GENERAL_CATEGORY);
+                		.findPreference(GENERAL_CATEGORY);
 
 		        /* Trackball Wake */
-        	mTrackballWakePref = (CheckBoxPreference) prefSet.findPreference(TRACKBALL_WAKE_PREF);
-        	mTrackballWakePref.setChecked(Settings.System.getInt(getContentResolver(),
-                			Settings.System.TRACKBALL_WAKE_SCREEN, 0) == 1);
+    	mTrackballWakePref = (CheckBoxPreference) prefSet.findPreference(TRACKBALL_WAKE_PREF);
+    	mTrackballWakePref.setChecked(Settings.System.getInt(getContentResolver(),
+            			Settings.System.TRACKBALL_WAKE_SCREEN, 0) == 1);
+    	
 		if (!getResources().getBoolean(R.bool.has_trackball)) {
 			generalCategory.removePreference(mTrackballWakePref);
 		}
