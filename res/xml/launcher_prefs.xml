@@ -1,27 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-<!--
-	<ListPreference
-		android:key="launcher_farrightab"
-		android:title="Far right launcher button"
-		android:summary="Change the action for the far right launcher button." 
-	/>
-
-	<ListPreference
-		android:key="launcher_farlefttab"
-		android:title="Far left launcher button"
-		android:summary="Change the action for the far left launcher button." 
-	/>
-
-	<ListPreference
-		android:key="launcher_numlauncherbuttons"
-		android:title="Number of launcher buttons"
-	/>
--->
-	<CheckBoxPreference
-		android:key="use_stock_launcher"
-		android:title="@string/title_general_use_stock_launcher"
-		android:summaryOn="@string/summary_on_general_use_stock_launcher"
-		android:summaryOff="@string/summary_off_general_use_stock_launcher" 
+	<ListPreference 
+		android:key="launcher_style"
+		android:dialogTitle="@string/dialog_title_launcher_style"
+		android:title="@string/title_general_launcher_style"
+		android:summary="@string/summary_launcher_style"
+		android:entries="@array/entries_launcherstyles" 
+		android:entryValues="@array/entryvalues_launcherstyles" 
 	/>
 </PreferenceScreen>

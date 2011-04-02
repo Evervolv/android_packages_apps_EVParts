@@ -21,22 +21,22 @@
         <item>Gingerbread w/Percentage</item>
         <item>Gingerbread Stock</item>
     </string-array>
+
     <string-array name="entryvalues_batterytypes">
         <item>0</item>
         <item>1</item>
     </string-array>
     
-    <string-array name="entries_farleftbutton">
-	<item>Phone</item>
-	<item>Camera</item>
-	<item>Contacts</item>
-	<item>Browser</item>
+    <string-array name="entries_launcherstyles">
+        <item>Stock style</item>
+        <item>Evervolv style</item>
+        <item>Tablet style</item>
     </string-array>
-    <string-array name="entryvalues_farleftbutton">
-        <item>com.android.phone</item>
-        <item>com.android.camera</item>
-        <item>com.android.contacts</item>
-        <item>com.android.browser</item>
+
+    <string-array name="entryvalues_launcherstyles">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
     </string-array>
 
 </resources>

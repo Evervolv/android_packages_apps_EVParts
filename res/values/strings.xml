@@ -72,10 +72,10 @@
     <!-- Launcher -->
     <string name="settings_launcher">Launcher Settings</string>
     <string name="settings_launcher_summary">Customize your launcher</string>
-    <string name="select_farright_button">Select far right action button.</string>
-    <string name="title_general_use_stock_launcher">Use Stock Launcher Layout</string>
-    <string name="summary_on_general_use_stock_launcher">Stock launcher layout will be used.</string>
-    <string name="summary_off_general_use_stock_launcher">Evervolv Launcher layout will be used.</string>	
+
+    <string name="title_general_launcher_style">Launcher style</string>
+    <string name="dialog_title_launcher_style">Launcher style</string>
+    <string name="summary_launcher_style">Select the launcher style to use.</string>
 
     <string name="group_applications">Applications</string>
 
