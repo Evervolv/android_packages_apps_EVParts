@@ -46,7 +46,7 @@ public class LauncherParts extends PreferenceActivity implements OnPreferenceCha
                 Settings.System.LAUNCHER_STYLE, 1));
 		mLauncherStylePref.setOnPreferenceChangeListener(this);
 		
-		if (!getResources(R.bool.device_is_tablet)) {
+		if (!getResources().getBoolean(R.bool.device_is_tablet)) {
 			CharSequence[] mNonTabValues = { "0", "1" };
 			mLauncherStylePref.setEntryValues(mNonTabValues);
 		}
