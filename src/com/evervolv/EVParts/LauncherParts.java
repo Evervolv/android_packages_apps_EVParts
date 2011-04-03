@@ -27,23 +27,17 @@ import android.view.View.OnClickListener;
 import android.provider.Settings;
 
 
-public class LauncherParts extends PreferenceActivity
-implements SharedPreferences.OnSharedPreferenceChangeListener , OnClickListener, OnPreferenceChangeListener{
-
-	//private static final int REQUEST_PICK_APPLICATION = 6;
-	//private static final String FARRIGHT_AB = "farrightaction_button";
+public class LauncherParts extends PreferenceActivity implements OnPreferenceChangeListener{
 	
-
+	private static final String LAUNCHER_STYLE = "launcher_style";
 	private ListPreference mLauncherStylePref;
 	
-	private String[] mAppNames;
-	private static final String LAUNCHER_STYLE = "launcher_style";
+
 	
 	@Override
     public void onCreate(Bundle savedInstanceState) {	
 		super.onCreate(savedInstanceState);
 		addPreferencesFromResource(R.xml.launcher_prefs);
-		getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
 		PreferenceScreen prefSet = getPreferenceScreen();
 	
 		
@@ -51,13 +45,12 @@ implements SharedPreferences.OnSharedPreferenceChangeListener , OnClickListener,
 		mLauncherStylePref.setValueIndex(Settings.System.getInt(getContentResolver(),
                 Settings.System.LAUNCHER_STYLE, 1));
 		mLauncherStylePref.setOnPreferenceChangeListener(this);
-    }
-
-	@Override
-	public void onClick(View v) {
 		
-	}
-
+		if (!getResources(R.bool.device_is_tablet)) {
+			CharSequence[] mNonTabValues = { "0", "1" };
+			mLauncherStylePref.setEntryValues(mNonTabValues);
+		}
+    }
 
 	@Override
 	public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -68,20 +61,7 @@ implements SharedPreferences.OnSharedPreferenceChangeListener , OnClickListener,
         }
         return false;
 	}
-
-
-
-	@Override
-	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences,
-			String key) {
-		// TODO Auto-generated method stub
-		
-	}
-	class Package {  
-		private String Appname = "";
-		private String PackagName = ""; 
-		private Drawable icon;
-	}  
+	
 }
 
  
