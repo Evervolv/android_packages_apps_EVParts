@@ -1,7 +1,8 @@
-package com.evervolv.EVParts;
+package com.evervolv.EVParts.Preferences;
 
 
 import com.evervolv.EVParts.R;
+import com.evervolv.EVParts.R.bool;
 import com.evervolv.EVParts.R.xml;
 
 import android.app.ActivityManager;
@@ -21,13 +22,10 @@ import android.util.Log;
 import android.provider.Settings;
 
 
-public class LockscreenParts extends PreferenceActivity
-implements OnPreferenceChangeListener {
-
-	private static final String TAG = "EVParts";
+public class LockscreenPrefs extends PreferenceActivity implements OnPreferenceChangeListener {
 	
-	private static final String CARRIER_CAP = "carrier_caption";
-	private static final String LOCKSCREEN_ROTARY_LOCK = "use_rotary_lockscreen";
+	private static final String CARRIER_CAP = "pref_carrier_caption";
+	private static final String LOCKSCREEN_ROTARY_LOCK = "pref_use_rotary_lockscreen";
     private static final String TRACKBALL_UNLOCK_PREF = "pref_trackball_unlock";
     private static final String GENERAL_CATEGORY = "pref_lockscreen_general_category";
     
@@ -35,6 +33,9 @@ implements OnPreferenceChangeListener {
 	private CheckBoxPreference mUseRotaryLockPref;
 	private CheckBoxPreference mTrackballUnlockPref;
 
+	private static final String TAG = "EVParts";
+	private static final boolean DEBUG = false;
+	
 	@Override
     public void onCreate(Bundle savedInstanceState) {	
 		super.onCreate(savedInstanceState);
@@ -84,7 +85,7 @@ implements OnPreferenceChangeListener {
     public boolean onPreferenceChange(Preference preference, Object objValue) {
         
         if (preference == mCarrierCaption) {
-			Settings.System.putString(getContentResolver(),CARRIER_CAP, objValue.toString());
+			Settings.System.putString(getContentResolver(),Settings.System.CARRIER_CAP, objValue.toString());
 			//Didn't i say i was learning?
             ActivityManager am = (ActivityManager)getSystemService(
                     Context.ACTIVITY_SERVICE);

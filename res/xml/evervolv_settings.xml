@@ -21,28 +21,28 @@
     <PreferenceCategory
         android:title="@string/custom_settings">
 
-        <PreferenceScreen android:key="settings_lockscreen"
-                android:title="@string/settings_lockscreen" 
-                android:summary="@string/settings_lockscreen_summary">
+        <PreferenceScreen android:key="preferences_lockscreen"
+                android:title="@string/preferences_lockscreen" 
+                android:summary="@string/preferences_lockscreen_summary">
             <intent android:action="android.intent.action.MAIN"
                     android:targetPackage="com.evervolv.EVParts"
-                    android:targetClass="com.evervolv.EVParts.LockscreenParts" />
+                    android:targetClass="com.evervolv.EVParts.Preferences.LockscreenPrefs" />
         </PreferenceScreen>
         
-        <PreferenceScreen android:key="settings_launcher"
-                android:title="@string/settings_launcher" 
-                android:summary="@string/settings_launcher_summary">
+        <PreferenceScreen android:key="preferences_launcher"
+                android:title="@string/preferences_launcher" 
+                android:summary="@string/preferences_launcher_summary">
             <intent android:action="android.intent.action.MAIN"
                     android:targetPackage="com.evervolv.EVParts"
-                    android:targetClass="com.evervolv.EVParts.LauncherParts" />
+                    android:targetClass="com.evervolv.EVParts.Preferences.LauncherPrefs" />
         </PreferenceScreen>
 
-        <PreferenceScreen android:key="settings_uioptions"
-                android:title="@string/settings_uioptions" 
-                android:summary="@string/settings_uioptions_summary">
+        <PreferenceScreen android:key="preferences_interface"
+                android:title="@string/preferences_interface" 
+                android:summary="@string/preferences_interface_summary">
             <intent android:action="android.intent.action.MAIN"
                     android:targetPackage="com.evervolv.EVParts"
-                    android:targetClass="com.evervolv.EVParts.UiOptions" />
+                    android:targetClass="com.evervolv.EVParts.Preferences.InterfacePrefs" />
         </PreferenceScreen>
 
     </PreferenceCategory>
