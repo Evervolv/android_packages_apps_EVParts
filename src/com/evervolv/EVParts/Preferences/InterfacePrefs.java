@@ -1,7 +1,8 @@
-package com.evervolv.EVParts;
+package com.evervolv.EVParts.Preferences;
 
 
 import com.evervolv.EVParts.R;
+import com.evervolv.EVParts.R.bool;
 import com.evervolv.EVParts.R.xml;
 
 import android.app.ActivityManager;
@@ -21,17 +22,18 @@ import android.widget.Toast;
 import android.util.Log;
 import android.provider.Settings;
 
-public class UiOptions extends PreferenceActivity implements OnPreferenceChangeListener {
+public class InterfacePrefs extends PreferenceActivity implements OnPreferenceChangeListener {
 
-    private static final String USE_SCREENOFF_ANIM = "use_screenoff_anim";
-    private static final String USE_SCREENON_ANIM = "use_screenon_anim";
-    private static final String BATTERY_OPTION = "battery_option";
-    private static final String HIDE_CLOCK_PREF = "hide_clock";
-    private static final String AM_PM_PREF = "hide_ampm";
-    private static final String USE_TRANSPARENT_STATUSBAR = "use_transparent_statusbar";
+    private static final String USE_SCREENOFF_ANIM = "pref_use_screenoff_anim";
+    private static final String USE_SCREENON_ANIM = "pref_use_screenon_anim";
+    private static final String BATTERY_OPTION = "pref_battery_option";
+    private static final String HIDE_CLOCK_PREF = "pref_hide_clock";
+    private static final String AM_PM_PREF = "pref_hide_ampm";
+    private static final String USE_TRANSPARENT_STATUSBAR = "pref_use_transparent_statusbar";
     private static final String TRACKBALL_WAKE_PREF = "pref_trackball_wake";
-    private static final String GENERAL_CATEGORY = "pref_category_general_settings";
-
+    private static final String GENERAL_CATEGORY = "pref_category_general_interface";
+    private static final String STATUSBAR_CATEGORY = "pref_category_statusbar_interface";
+    
     private CheckBoxPreference mTrackballWakePref;
     private CheckBoxPreference mHideClock;
     private CheckBoxPreference mHideAmPm;
@@ -39,13 +41,18 @@ public class UiOptions extends PreferenceActivity implements OnPreferenceChangeL
     private CheckBoxPreference mUseScreenOffAnim;
     private CheckBoxPreference mUseTransparentStatusBar;
     private ListPreference mBatteryOption;
-	
+    
+    private static final String TAG = "EVParts";
+    private static final boolean DEBUG = false;
 	@Override
     public void onCreate(Bundle savedInstanceState) {	
 		super.onCreate(savedInstanceState);
-		addPreferencesFromResource(R.xml.ui_options);
+		addPreferencesFromResource(R.xml.interface_prefs);
 		PreferenceScreen prefSet = getPreferenceScreen();
-
+		
+		PreferenceCategory generalCategory = (PreferenceCategory) prefSet
+		.findPreference(GENERAL_CATEGORY);
+		
 		mUseScreenOnAnim = (CheckBoxPreference)prefSet.findPreference(USE_SCREENON_ANIM);
 		mUseScreenOnAnim.setChecked(Settings.System.getInt(getContentResolver(), 
 						Settings.System.USE_SCREENON_ANIM, 1) == 1);
@@ -67,8 +74,7 @@ public class UiOptions extends PreferenceActivity implements OnPreferenceChangeL
 		mHideAmPm = (CheckBoxPreference) prefSet.findPreference(AM_PM_PREF);
 		mHideAmPm.setChecked(Settings.System.getInt(getContentResolver(), 
 						Settings.System.SHOW_CLOCK_AMPM, 0) == 1);
-		PreferenceCategory generalCategory = (PreferenceCategory) prefSet
-                		.findPreference(GENERAL_CATEGORY);
+
 
 		        /* Trackball Wake */
     	mTrackballWakePref = (CheckBoxPreference) prefSet.findPreference(TRACKBALL_WAKE_PREF);

@@ -22,16 +22,16 @@ import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.os.Bundle;
 
-public class SpareParts extends PreferenceActivity
-        implements Preference.OnPreferenceChangeListener,
-        SharedPreferences.OnSharedPreferenceChangeListener {
+public class EvervolvSettings extends PreferenceActivity implements Preference.OnPreferenceChangeListener, 
+		SharedPreferences.OnSharedPreferenceChangeListener {
     private static final String TAG = "EVParts";
+    private static final boolean DEBUG = false;
 
     
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
-        addPreferencesFromResource(R.xml.spare_parts);
+        addPreferencesFromResource(R.xml.evervolv_settings);
 
     }
 

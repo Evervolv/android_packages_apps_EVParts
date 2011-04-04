@@ -11,23 +11,23 @@
     <application android:label="@string/app_label"
             android:icon="@drawable/app_icon">
 
-        <activity android:name="SpareParts">
+        <activity android:name="EvervolvSettings">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".LockscreenParts" android:label="@string/settings_lockscreen">
+        <activity android:name=".Preferences.LockscreenPrefs" android:label="@string/preferences_lockscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
             </intent-filter>
         </activity>
-        <activity android:name=".LauncherParts" android:label="@string/settings_launcher">
+        <activity android:name=".Preferences.LauncherPrefs" android:label="@string/preferences_launcher">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
             </intent-filter>
         </activity>
-        <activity android:name=".UiOptions" android:label="@string/settings_uioptions">
+        <activity android:name=".Preferences.InterfacePrefs" android:label="@string/preferences_interface">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
             </intent-filter>

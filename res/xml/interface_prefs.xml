@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    	<PreferenceCategory
+            	android:title="@string/interface_category_general_title"
+		android:key="pref_category_general_interface"	
+	/>
+
+		<CheckBoxPreference
+			android:key="pref_use_screenon_anim"
+			android:title="@string/title_use_screenon_anim"
+			android:summaryOn="@string/summary_on_use_screenon_anim"
+			android:summaryOff="@string/summary_off_use_screenon_anim" 
+		/>
+
+		<CheckBoxPreference
+			android:key="pref_use_screenoff_anim"
+			android:title="@string/title_use_screenoff_anim"
+			android:summaryOn="@string/summary_on_use_screenoff_anim"
+			android:summaryOff="@string/summary_off_use_screenoff_anim" 
+		/>
+		<CheckBoxPreference
+			android:key="pref_trackball_wake"
+			android:title="@string/title_use_trackball_wake"
+			android:summaryOn="@string/summary_on_use_trackball_wake"
+			android:summaryOff="@string/summary_off_use_trackball_wake" 
+		/>
+    	<PreferenceCategory
+            	android:title="@string/interface_category_statusbar_title"
+		android:key="pref_category_statusbar_interface"
+	/>
+
+		<ListPreference 
+			android:key="pref_battery_option" 
+			android:dialogTitle="@string/dialog_title_battery_option"
+		    	android:title="@string/title_battery_option" 
+			android:summary="@string/summary_battery_option"
+		    	android:entries="@array/entries_batterytypes" 
+			android:entryValues="@array/entryvalues_batterytypes" 
+		/>
+		<CheckBoxPreference
+			   android:key="pref_hide_clock"
+			   android:title="@string/title_hide_clock"
+			   android:summaryOn="@string/summary_on_hide_clock"
+			   android:summaryOff="@string/summary_off_hide_clock"
+		/>
+		<CheckBoxPreference
+			   android:key="pref_hide_ampm"
+			   android:title="@string/title_hide_ampm"
+			   android:summaryOn="@string/summary_on_hide_ampm"
+			   android:summaryOff="@string/summary_on_hide_ampm"
+		/>
+		<CheckBoxPreference
+			android:key="pref_use_transparent_statusbar"
+			android:title="@string/title_use_transparent_statusbar"
+			android:summaryOn="@string/summary_on_use_transparent_statusbar"
+			android:summaryOff="@string/summary_off_use_transparent_statusbar" 
+		/>
+</PreferenceScreen>
