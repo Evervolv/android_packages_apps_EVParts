@@ -58,6 +58,7 @@ public class LockscreenPrefs extends PreferenceActivity implements OnPreferenceC
     	.findPreference(GENERAL_CATEGORY);
 		
 		if (!getResources().getBoolean(R.bool.has_trackball)) {
+			if (DEBUG) Log.d(TAG, "does not have trackball!");
 			generalCategory.removePreference(mTrackballUnlockPref);
 		}
     }	

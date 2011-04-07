@@ -3,8 +3,7 @@
 
     	<PreferenceCategory
             	android:title="@string/interface_category_general_title"
-		android:key="pref_category_general_interface"	
-	/>
+		android:key="pref_category_general_interface">
 
 		<CheckBoxPreference
 			android:key="pref_use_screenon_anim"
@@ -25,10 +24,10 @@
 			android:summaryOn="@string/summary_on_use_trackball_wake"
 			android:summaryOff="@string/summary_off_use_trackball_wake" 
 		/>
+	</PreferenceCategory>
     	<PreferenceCategory
             	android:title="@string/interface_category_statusbar_title"
-		android:key="pref_category_statusbar_interface"
-	/>
+		android:key="pref_category_statusbar_interface">
 
 		<ListPreference 
 			android:key="pref_battery_option" 
@@ -56,4 +55,5 @@
 			android:summaryOn="@string/summary_on_use_transparent_statusbar"
 			android:summaryOff="@string/summary_off_use_transparent_statusbar" 
 		/>
+	</PreferenceCategory>
 </PreferenceScreen>
