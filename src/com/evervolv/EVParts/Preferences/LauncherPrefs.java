@@ -20,7 +20,7 @@ import android.provider.Settings;
 
 public class LauncherPrefs extends PreferenceActivity implements OnPreferenceChangeListener{
 	
-	private static final String LAUNCHER_STYLE = "pref_launcher_style";
+	private static final String LAUNCHER_STYLE_PREF = "pref_launcher_style";
 	private ListPreference mLauncherStylePref;
 	
 	private static final String TAG = "EVParts";
@@ -32,9 +32,7 @@ public class LauncherPrefs extends PreferenceActivity implements OnPreferenceCha
 		PreferenceScreen prefSet = getPreferenceScreen();
 	
 		
-		mLauncherStylePref = (ListPreference) prefSet.findPreference(LAUNCHER_STYLE);
-		mLauncherStylePref.setValueIndex(Settings.System.getInt(getContentResolver(),
-                Settings.System.LAUNCHER_STYLE, 1));
+		mLauncherStylePref = (ListPreference) prefSet.findPreference(LAUNCHER_STYLE_PREF);
 		mLauncherStylePref.setOnPreferenceChangeListener(this);
 		
 		if (!getResources().getBoolean(R.bool.device_is_tablet)) {
@@ -50,7 +48,8 @@ public class LauncherPrefs extends PreferenceActivity implements OnPreferenceCha
 	@Override
 	public boolean onPreferenceChange(Preference preference, Object newValue) {
         if (preference == mLauncherStylePref) {
-        	Settings.System.putInt(getContentResolver(), Settings.System.LAUNCHER_STYLE, Integer.valueOf((String) newValue));
+        	Settings.System.putInt(getContentResolver(), Settings.System.LAUNCHER_STYLE, 
+        			Integer.valueOf((String) newValue));
         	// Is there another way we can do this? some sort of settings observer in launcher? or maybe its own preference provider?
             ActivityManager am = (ActivityManager)getSystemService(Context.ACTIVITY_SERVICE);
             am.forceStopPackage("com.android.launcher");

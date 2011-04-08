@@ -38,13 +38,14 @@
     <string name="preferences_lockscreen">Lockscreen Settings</string>
     <string name="preferences_lockscreen_summary">Customize your lockscreen</string>
     <string name="title_lockscreen_category_general">General</string>
+
 	<!-- Carrier caption -->
     <string name="title_carrier_caption">Lockscreen Carrier Caption</string>
     <string name="summary_carrier_caption">Change the lockscreen carrier caption</string>
-	<!-- Lockscreen type -->
-    <string name="title_general_use_rotary_lockscreen">Use Rotary Lockscreen?</string>
-    <string name="summary_on_use_rotary_lockscreen">Rotary lockscreen will be used</string>
-    <string name="summary_off_use_rotary_lockscreen">Rotary lockscreen will not be used</string>
+	<!-- Lockscreen style -->
+    <string name="title_general_lockscreen_style">Lockscreen style</string>
+    <string name="dialog_title_lockscreen_style">Lockscreen style</string>
+    <string name="summary_lockscreen_style">Select the lockscreen style to use</string>
 	<!-- Trackball unlock -->
     <string name="title_trackball_unlock">Trackball unlock</string>
     <string name="summary_on_trackball_unlock">Trackball unlock will be used</string>

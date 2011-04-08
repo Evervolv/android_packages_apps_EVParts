@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
+import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.EditTextPreference;
@@ -24,13 +25,16 @@ import android.provider.Settings;
 
 public class LockscreenPrefs extends PreferenceActivity implements OnPreferenceChangeListener {
 	
-	private static final String CARRIER_CAP = "pref_carrier_caption";
-	private static final String LOCKSCREEN_ROTARY_LOCK = "pref_use_rotary_lockscreen";
+	private static final String CARRIER_CAP_PREF = "pref_carrier_caption";
+	private static final String LOCKSCREEN_STYLE_PREF = "pref_lockscreen_style";
     private static final String TRACKBALL_UNLOCK_PREF = "pref_trackball_unlock";
     private static final String GENERAL_CATEGORY = "pref_lockscreen_general_category";
     
+    private static final int LOCK_STYLE_TABS   = 1;
+    private static final int LOCK_STYLE_ROTARY = 2;
+    
 	private EditTextPreference mCarrierCaption;
-	private CheckBoxPreference mUseRotaryLockPref;
+	private ListPreference mLockscreenStyle;
 	private CheckBoxPreference mTrackballUnlockPref;
 
 	private static final String TAG = "EVParts";
@@ -42,12 +46,15 @@ public class LockscreenPrefs extends PreferenceActivity implements OnPreferenceC
 		addPreferencesFromResource(R.xml.lockscreen_prefs);
 		PreferenceScreen prefSet = getPreferenceScreen();
 		
-		/* Rotary lockscreen */
-		mUseRotaryLockPref = (CheckBoxPreference)prefSet.findPreference(LOCKSCREEN_ROTARY_LOCK);
-		mUseRotaryLockPref.setChecked(Settings.System.getInt(getContentResolver(), 
-									  Settings.System.USE_ROTARY_LOCKSCREEN, 1) == 1);		
+		/* Lockscreen style */
+		mLockscreenStyle = (ListPreference) prefSet.findPreference(LOCKSCREEN_STYLE_PREF);
+		mLockscreenStyle.setOnPreferenceChangeListener(this);
+		
+		Log.d(TAG, "LockStyle: " + Integer.toString(Settings.System.getInt(getContentResolver(), 
+				Settings.System.LOCKSCREEN_STYLE, 1)));
+		
 		/* Carrier caption */
-		mCarrierCaption = (EditTextPreference)prefSet.findPreference(CARRIER_CAP);
+		mCarrierCaption = (EditTextPreference)prefSet.findPreference(CARRIER_CAP_PREF);
 		mCarrierCaption.setOnPreferenceChangeListener(this);
 
         /* Trackball Unlock */
@@ -66,14 +73,7 @@ public class LockscreenPrefs extends PreferenceActivity implements OnPreferenceC
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         boolean value;
         
-        if (preference == mUseRotaryLockPref) {
-            value = mUseRotaryLockPref.isChecked();
-            Settings.System.putInt(getContentResolver(), Settings.System.USE_ROTARY_LOCKSCREEN, value ? 1 : 0);
-            //Temporary hack to fix Phone FC's when swapping styles.
-            ActivityManager am = (ActivityManager)getSystemService(
-                    Context.ACTIVITY_SERVICE);
-            am.forceStopPackage("com.android.phone");
-        } else if (preference == mTrackballUnlockPref) {
+        if (preference == mTrackballUnlockPref) {
             value = mTrackballUnlockPref.isChecked();
             Settings.System.putInt(getContentResolver(), Settings.System.TRACKBALL_UNLOCK_SCREEN,
                     value ? 1 : 0);
@@ -86,14 +86,23 @@ public class LockscreenPrefs extends PreferenceActivity implements OnPreferenceC
     public boolean onPreferenceChange(Preference preference, Object objValue) {
         
         if (preference == mCarrierCaption) {
-			Settings.System.putString(getContentResolver(),Settings.System.CARRIER_CAP, objValue.toString());
+			Settings.System.putString(getContentResolver(),Settings.System.CARRIER_CAP, 
+					objValue.toString());
 			//Didn't i say i was learning?
             ActivityManager am = (ActivityManager)getSystemService(
                     Context.ACTIVITY_SERVICE);
             am.forceStopPackage("com.android.phone");
-		
+            return true;
+        } else if (preference == mLockscreenStyle) {
+        	Settings.System.putInt(getContentResolver(), Settings.System.LOCKSCREEN_STYLE, 
+        			Integer.valueOf((String) objValue));
+          //Didn't i say i was learning?
+            //ActivityManager am = (ActivityManager)getSystemService(
+            //        Context.ACTIVITY_SERVICE);
+            //am.forceStopPackage("com.android.phone");
+            return true;
         }
-        return true;
+        return false;
     }
     
 }
