@@ -3,7 +3,7 @@
     	<PreferenceCategory
             	android:title="@string/title_lockscreen_category_general"
 		android:key="pref_lockscreen_general_category"	
-	/>
+	>
 		<EditTextPreference
 			android:key="pref_carrier_caption"
 			android:title="Lockscreen Carrier Caption"
@@ -24,4 +24,5 @@
 			android:summaryOn="@string/summary_on_trackball_unlock"
 			android:summaryOff="@string/summary_off_trackball_unlock" 
 		/>
+	</PreferenceCategory>
 </PreferenceScreen>
