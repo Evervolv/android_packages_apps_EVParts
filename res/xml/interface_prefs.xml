@@ -30,12 +30,12 @@
 		android:key="pref_category_statusbar_interface">
 
 		<ListPreference 
-			android:key="pref_battery_option" 
-			android:dialogTitle="@string/dialog_title_battery_option"
-		    	android:title="@string/title_battery_option" 
-			android:summary="@string/summary_battery_option"
-		    	android:entries="@array/entries_batterytypes" 
-			android:entryValues="@array/entryvalues_batterytypes" 
+			android:key="pref_battery_style" 
+			android:dialogTitle="@string/dialog_title_battery_style"
+		    	android:title="@string/title_battery_style" 
+			android:summary="@string/summary_battery_style"
+		    	android:entries="@array/entries_batterystyles" 
+			android:entryValues="@array/entryvalues_batterystyles" 
 		/>
 		<CheckBoxPreference
 			   android:key="pref_hide_clock"

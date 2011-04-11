@@ -71,9 +71,9 @@
     <string name="summary_on_use_trackball_wake">Trackball wake will be used</string>
     <string name="summary_off_use_trackball_wake">Trackball wake will not be used</string>
 	<!-- Batter Options -->
-    <string name="dialog_title_battery_option">Battery</string>
-    <string name="title_battery_option">Battery type</string>
-    <string name="summary_battery_option">Choose the battery type to use (Requires reboot)</string>
+    <string name="dialog_title_battery_style">Battery</string>
+    <string name="title_battery_style">Battery style</string>
+    <string name="summary_battery_style">Choose the battery style to use (Requires reboot)</string>
 	<!-- Show/Hide clock -->
     <string name="clock_title">Clock</string>
     <string name="title_show_clock">Show clock</string>

@@ -17,14 +17,14 @@
 
 <resources>
 
-    <string-array name="entries_batterytypes">
-        <item>Gingerbread w/Percentage</item>
+    <string-array name="entries_batterystyles">
         <item>Gingerbread Stock</item>
+        <item>Gingerbread w/Percentage</item>
     </string-array>
 
-    <string-array name="entryvalues_batterytypes" translatable="false">
-        <item>0</item>
+    <string-array name="entryvalues_batterystyles" translatable="false">
         <item>1</item>
+        <item>2</item>
     </string-array>
     
     <string-array name="entries_launcherstyles">

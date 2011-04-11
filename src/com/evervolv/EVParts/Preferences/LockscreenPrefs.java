@@ -96,10 +96,6 @@ public class LockscreenPrefs extends PreferenceActivity implements OnPreferenceC
         } else if (preference == mLockscreenStyle) {
         	Settings.System.putInt(getContentResolver(), Settings.System.LOCKSCREEN_STYLE, 
         			Integer.valueOf((String) objValue));
-          //Didn't i say i was learning?
-            //ActivityManager am = (ActivityManager)getSystemService(
-            //        Context.ACTIVITY_SERVICE);
-            //am.forceStopPackage("com.android.phone");
             return true;
         }
         return false;

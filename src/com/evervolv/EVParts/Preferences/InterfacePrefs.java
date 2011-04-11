@@ -26,7 +26,7 @@ public class InterfacePrefs extends PreferenceActivity implements OnPreferenceCh
 
     private static final String USE_SCREENOFF_ANIM = "pref_use_screenoff_anim";
     private static final String USE_SCREENON_ANIM = "pref_use_screenon_anim";
-    private static final String BATTERY_OPTION = "pref_battery_option";
+    private static final String BATTERY_STYLE = "pref_battery_style";
     private static final String HIDE_CLOCK_PREF = "pref_hide_clock";
     private static final String AM_PM_PREF = "pref_hide_ampm";
     private static final String USE_TRANSPARENT_STATUSBAR = "pref_use_transparent_statusbar";
@@ -55,13 +55,13 @@ public class InterfacePrefs extends PreferenceActivity implements OnPreferenceCh
 		
 		mUseScreenOnAnim = (CheckBoxPreference)prefSet.findPreference(USE_SCREENON_ANIM);
 		mUseScreenOnAnim.setChecked(Settings.System.getInt(getContentResolver(), 
-						Settings.System.USE_SCREENON_ANIM, 1) == 1);
+						Settings.System.USE_SCREENON_ANIM, 0) == 1);
 		
 		mUseScreenOffAnim = (CheckBoxPreference)prefSet.findPreference(USE_SCREENOFF_ANIM);
 		mUseScreenOffAnim.setChecked(Settings.System.getInt(getContentResolver(), 
-						Settings.System.USE_SCREENOFF_ANIM, 1) == 1);		
+						Settings.System.USE_SCREENOFF_ANIM, 0) == 1);		
 		
-		mBatteryOption = (ListPreference) prefSet.findPreference(BATTERY_OPTION);
+		mBatteryOption = (ListPreference) prefSet.findPreference(BATTERY_STYLE);
 		mBatteryOption.setOnPreferenceChangeListener(this);
 
 		mUseTransparentStatusBar = (CheckBoxPreference)prefSet.findPreference(USE_TRANSPARENT_STATUSBAR);
@@ -70,10 +70,10 @@ public class InterfacePrefs extends PreferenceActivity implements OnPreferenceCh
 		
 		mHideClock = (CheckBoxPreference) prefSet.findPreference(HIDE_CLOCK_PREF);
 		mHideClock.setChecked(Settings.System.getInt(getContentResolver(), 
-						Settings.System.SHOW_CLOCK, 0) == 1);
+						Settings.System.HIDE_CLOCK, 0) == 1);
 		mHideAmPm = (CheckBoxPreference) prefSet.findPreference(AM_PM_PREF);
 		mHideAmPm.setChecked(Settings.System.getInt(getContentResolver(), 
-						Settings.System.SHOW_CLOCK_AMPM, 0) == 1);
+						Settings.System.HIDE_CLOCK_AMPM, 0) == 1);
 
 
 		        /* Trackball Wake */
@@ -84,6 +84,13 @@ public class InterfacePrefs extends PreferenceActivity implements OnPreferenceCh
 		if (!getResources().getBoolean(R.bool.has_trackball)) {
 			generalCategory.removePreference(mTrackballWakePref);
 		}
+		
+    	if (mHideClock.isChecked()) {
+    		mHideAmPm.setEnabled(false);
+    	} else if (!mHideClock.isChecked()) {
+    		mHideAmPm.setEnabled(true);
+    	}
+		
     }
 	
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
@@ -91,21 +98,28 @@ public class InterfacePrefs extends PreferenceActivity implements OnPreferenceCh
         
         if (preference == mHideClock) {
         	value = mHideClock.isChecked();
-    	    	Settings.System.putInt(getContentResolver(), Settings.System.SHOW_CLOCK, value ? 1 : 0);
+    	    	Settings.System.putInt(getContentResolver(), Settings.System.HIDE_CLOCK, value ? 1 : 0);
+    	    	
+    	    	if (value) {
+    	    		mHideAmPm.setEnabled(false);
+    	    	} else if (!value) {
+    	    		mHideAmPm.setEnabled(true);
+    	    	}
+    	    	
     	} else if (preference == mHideAmPm) {
     		value = mHideAmPm.isChecked();
-    	    	Settings.System.putInt(getContentResolver(), Settings.System.SHOW_CLOCK_AMPM, value ? 1 : 0);
+    	    	Settings.System.putInt(getContentResolver(), Settings.System.HIDE_CLOCK_AMPM, value ? 1 : 0);
     	} else if (preference == mUseTransparentStatusBar) {
     		value = mUseTransparentStatusBar.isChecked();
     	    	Settings.System.putInt(getContentResolver(), Settings.System.USE_TRANSPARENT_STATUSBAR, value ? 1 : 0);
     	} else if (preference == mUseScreenOnAnim) {
-    		value = 	mUseScreenOnAnim.isChecked();
+    		value = mUseScreenOnAnim.isChecked();
             	Settings.System.putInt(getContentResolver(), Settings.System.USE_SCREENON_ANIM, value ? 1 : 0);
         } else if (preference == mUseScreenOffAnim) {
         	value = mUseScreenOffAnim.isChecked();
             	Settings.System.putInt(getContentResolver(), Settings.System.USE_SCREENOFF_ANIM, value ? 1 : 0);
         } else if (preference == mTrackballWakePref) {
-            	value = mTrackballWakePref.isChecked();
+            value = mTrackballWakePref.isChecked();
             	Settings.System.putInt(getContentResolver(), Settings.System.TRACKBALL_WAKE_SCREEN, value ? 1 : 0);
         }
         
@@ -114,7 +128,7 @@ public class InterfacePrefs extends PreferenceActivity implements OnPreferenceCh
     
     public boolean onPreferenceChange(Preference preference, Object objValue) {
         if (preference == mBatteryOption) {
-        	Settings.System.putInt(getContentResolver(), Settings.System.BATTERY_OPTION, Integer.valueOf((String) objValue));
+        	Settings.System.putInt(getContentResolver(), Settings.System.BATTERY_STYLE, Integer.valueOf((String) objValue));
         }
         return true;
     }
