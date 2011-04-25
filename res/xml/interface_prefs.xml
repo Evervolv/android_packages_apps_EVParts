@@ -25,13 +25,6 @@
 			android:summaryOff="@string/summary_off_use_trackball_wake" 
 		/>
 
-		<CheckBoxPreference
-			android:key="pref_theme_compatibility"
-			android:title="@string/title_theme_compatibility"
-			android:summaryOn="@string/summary_on_theme_compatibility"
-			android:summaryOff="@string/summary_off_theme_compatibility" 
-		/>
-
 	</PreferenceCategory>
     	<PreferenceCategory
             	android:title="@string/interface_category_statusbar_title"

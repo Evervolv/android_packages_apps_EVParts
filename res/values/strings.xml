@@ -58,10 +58,6 @@
 
     <string name="interface_category_general_title">General</string>
     <string name="interface_category_statusbar_title">Statusbar</string>
-	<!-- Theme compatibility -->
-    <string name="title_theme_compatibility">Theme compatibility</string>
-    <string name="summary_on_theme_compatibility">Six bar signal and 100 battery mod disabled.</string>
-    <string name="summary_off_theme_compatibility">Six bar signal and 100 battery mod enabled.</string>
 	<!-- Screen on animation -->
     <string name="title_use_screenon_anim">Use Screen On Animation?</string>
     <string name="summary_on_use_screenon_anim">Screen On Animation will be used</string>

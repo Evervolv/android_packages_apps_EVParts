@@ -24,7 +24,6 @@ import android.provider.Settings;
 
 public class InterfacePrefs extends PreferenceActivity implements OnPreferenceChangeListener {
 
-    private static final String THEME_COMPATIBILTY = "pref_theme_compatibility";
 	private static final String USE_SCREENOFF_ANIM = "pref_use_screenoff_anim";
     private static final String USE_SCREENON_ANIM = "pref_use_screenon_anim";
     private static final String BATTERY_STYLE = "pref_battery_style";
@@ -35,7 +34,6 @@ public class InterfacePrefs extends PreferenceActivity implements OnPreferenceCh
     private static final String GENERAL_CATEGORY = "pref_category_general_interface";
     private static final String STATUSBAR_CATEGORY = "pref_category_statusbar_interface";
     
-    private CheckBoxPreference mThemeCompatibility;
     private CheckBoxPreference mTrackballWakePref;
     private CheckBoxPreference mHideClock;
     private CheckBoxPreference mHideAmPm;
@@ -54,10 +52,6 @@ public class InterfacePrefs extends PreferenceActivity implements OnPreferenceCh
 		
 		PreferenceCategory generalCategory = (PreferenceCategory) prefSet
 		.findPreference(GENERAL_CATEGORY);
-		// Only using one checkbox for now, this is a temporary instance.
-		mThemeCompatibility = (CheckBoxPreference) prefSet.findPreference(THEME_COMPATIBILTY);
-		mThemeCompatibility.setChecked(Settings.System.getInt(getContentResolver(),
-				Settings.System.THEME_COMPATIBILITY_BATTERY, 0) == 1);
 		
 		mUseScreenOnAnim = (CheckBoxPreference)prefSet.findPreference(USE_SCREENON_ANIM);
 		mUseScreenOnAnim.setChecked(Settings.System.getInt(getContentResolver(), 
@@ -132,12 +126,6 @@ public class InterfacePrefs extends PreferenceActivity implements OnPreferenceCh
             value = mTrackballWakePref.isChecked();
             	Settings.System.putInt(getContentResolver(), 
             			Settings.System.TRACKBALL_WAKE_SCREEN, value ? 1 : 0);
-        } else if (preference == mThemeCompatibility) {
-        	value = mThemeCompatibility.isChecked();
-	        	Settings.System.putInt(getContentResolver(), 
-	        			Settings.System.THEME_COMPATIBILITY_BATTERY , value ? 1 : 0);
-	        	Settings.System.putInt(getContentResolver(), 
-	        			Settings.System.THEME_COMPATIBILITY_SIGNAL, value ? 1 : 0);
         }
         
         return true;
