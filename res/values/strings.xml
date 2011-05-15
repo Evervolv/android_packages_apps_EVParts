@@ -25,15 +25,6 @@
     <string name="custom_settings">Customizable Settings</string>
 
 
-    <!-- Launcher Preferences -->
-    <string name="preferences_launcher">Launcher Settings</string>
-    <string name="preferences_launcher_summary">Customize your launcher</string>
-	<!-- Launcher style -->
-    <string name="title_general_launcher_style">Launcher style</string>
-    <string name="dialog_title_launcher_style">Launcher style</string>
-    <string name="summary_launcher_style">Select the launcher style to use</string>
-
-
     <!-- Lockscreen Preferences -->
     <string name="preferences_lockscreen">Lockscreen Settings</string>
     <string name="preferences_lockscreen_summary">Customize your lockscreen</string>

@@ -22,11 +22,6 @@
                 <action android:name="android.intent.action.MAIN"/>
             </intent-filter>
         </activity>
-        <activity android:name=".Preferences.LauncherPrefs" android:label="@string/preferences_launcher">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-            </intent-filter>
-        </activity>
         <activity android:name=".Preferences.InterfacePrefs" android:label="@string/preferences_interface">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
