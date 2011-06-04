@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    	<PreferenceCategory
+            	android:title="@string/advanced_category_general_title"
+		android:key="pref_category_general_advanced">
+
+		<CheckBoxPreference
+			android:key="pref_tether_on_plugin"
+			android:title="@string/title_tether_on_plugin"
+			android:summaryOn="@string/summary_on_tether_on_plugin"
+			android:summaryOff="@string/summary_off_tether_on_plugin" 
+		/>
+	</PreferenceCategory>
+</PreferenceScreen>

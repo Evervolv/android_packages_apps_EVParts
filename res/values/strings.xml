@@ -79,4 +79,14 @@
     <string name="title_use_transparent_statusbar">Statusbar transparency</string>
     <string name="summary_on_use_transparent_statusbar">Transparent statusbar will be used</string>
     <string name="summary_off_use_transparent_statusbar">Transparent statusbar will not be used</string>
+
+    <!-- Interface Preferences -->
+    <string name="preferences_advanced">Advanced settings</string>
+    <string name="preferences_advanced_summary">Advanced settings to customize your device.</string>
+    <string name="advanced_category_general_title">General</string>
+	<!-- Screen on animation -->
+    <string name="title_tether_on_plugin">Tether device automatically when plugged in?</string>
+    <string name="summary_on_tether_on_plugin">Your device will automatically tether when plugged in</string>
+    <string name="summary_off_tether_on_plugin">Your device will not automatically tether when plugged in</string>
+
 </resources>

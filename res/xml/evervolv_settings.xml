@@ -37,6 +37,14 @@
                     android:targetClass="com.evervolv.EVParts.Preferences.InterfacePrefs" />
         </PreferenceScreen>
 
+        <PreferenceScreen android:key="preferences_advanced"
+                android:title="@string/preferences_advanced" 
+                android:summary="@string/preferences_advanced_summary">
+            <intent android:action="android.intent.action.MAIN"
+                    android:targetPackage="com.evervolv.EVParts"
+                    android:targetClass="com.evervolv.EVParts.Preferences.AdvancedPrefs" />
+        </PreferenceScreen>
+
     </PreferenceCategory>
          
 </PreferenceScreen>
