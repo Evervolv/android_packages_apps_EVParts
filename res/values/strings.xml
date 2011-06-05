@@ -49,6 +49,9 @@
 
     <string name="interface_category_general_title">General</string>
     <string name="interface_category_statusbar_title">Statusbar</string>
+    <string name="interface_category_statusbar_icons_title">Statusbar icons</string>
+
+
 	<!-- Screen on animation -->
     <string name="title_use_screenon_anim">Use Screen On Animation?</string>
     <string name="summary_on_use_screenon_anim">Screen On Animation will be used</string>
@@ -80,11 +83,43 @@
     <string name="summary_on_use_transparent_statusbar">Transparent statusbar will be used</string>
     <string name="summary_off_use_transparent_statusbar">Transparent statusbar will not be used</string>
 
-    <!-- Interface Preferences -->
+	<!-- Show/Hide data icon -->
+    <string name="title_hide_data_icon">Hide data icon</string>
+    <string name="summary_on_hide_data_icon">Data icon is set to hidden</string>
+    <string name="summary_off_hide_data_icon">Data icon is set to visible</string>
+	<!-- Show/Hide bluetooth icon -->
+    <string name="title_hide_bluetooth_icon">Hide bluetooth icon</string>
+    <string name="summary_on_hide_bluetooth_icon">Bluetooth icon is set to hidden</string>
+    <string name="summary_off_hide_bluetooth_icon">Bluetooth icon is set to visible</string>
+	<!-- Show/Hide battery icon -->
+    <string name="title_hide_battery_icon">Hide battery icon</string>
+    <string name="summary_on_hide_battery_icon">Battery icon is set to hidden</string>
+    <string name="summary_off_hide_battery_icon">Battery icon is set to visible</string>
+	<!-- Show/Hide sync icon -->
+    <string name="title_hide_sync_icon">Hide sync icon</string>
+    <string name="summary_on_hide_sync_icon">Sync icon is set to hidden</string>
+    <string name="summary_off_hide_sync_icon">Sync icon is set to visible</string>
+	<!-- Show/Hide gps icon -->
+    <string name="title_hide_gps_icon">Hide GPS icon</string>
+    <string name="summary_on_hide_gps_icon">GPS icon is set to hidden</string>
+    <string name="summary_off_hide_gps_icon">GPS icon is set to visible</string>
+	<!-- Show/Hide wifi icon -->
+    <string name="title_hide_wifi_icon">Hide wifi icon</string>
+    <string name="summary_on_hide_wifi_icon">Wifi icon is set to hidden</string>
+    <string name="summary_off_hide_wifi_icon">Wifi icon is set to visible</string>
+	<!-- Show/Hide signal icon -->
+    <string name="title_hide_signal_icon">Hide signal icon</string>
+    <string name="summary_on_hide_signal_icon">Signal icon is set to hidden</string>
+    <string name="summary_off_hide_signal_icon">Signal icon is set to visible</string>
+	<!-- Clear icon flags -->
+    <string name="title_clear_flags_pref">Clear status bar icon flags</string>
+    <string name="summary_clear_flags_pref">Clears all status bar icon flags from settings.</string>
+
+    <!-- Advanced Preferences -->
     <string name="preferences_advanced">Advanced settings</string>
     <string name="preferences_advanced_summary">Advanced settings to customize your device.</string>
     <string name="advanced_category_general_title">General</string>
-	<!-- Screen on animation -->
+	<!-- Automatic Tethering -->
     <string name="title_tether_on_plugin">Tether device automatically when plugged in?</string>
     <string name="summary_on_tether_on_plugin">Your device will automatically tether when plugged in</string>
     <string name="summary_off_tether_on_plugin">Your device will not automatically tether when plugged in</string>

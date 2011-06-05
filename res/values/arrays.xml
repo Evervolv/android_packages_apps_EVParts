@@ -20,13 +20,11 @@
     <string-array name="entries_batterystyles">
         <item>Stock</item>
         <item>Percentage</item>
-        <item>Invisible</item>
     </string-array>
 
     <string-array name="entryvalues_batterystyles" translatable="false">
         <item>1</item>
         <item>2</item>
-        <item>3</item>
     </string-array>
 
     <string-array name="lockscreen_styles_entries">

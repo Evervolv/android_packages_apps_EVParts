@@ -57,4 +57,57 @@
 			android:summaryOff="@string/summary_off_use_transparent_statusbar" 
 		/>
 	</PreferenceCategory>
+    	<PreferenceCategory
+            	android:title="@string/interface_category_statusbar_icons_title"
+		android:key="pref_category_statusbar_icons_interface">
+
+		<CheckBoxPreference
+			   android:key="pref_hide_data_icon"
+			   android:title="@string/title_hide_data_icon"
+			   android:summaryOn="@string/summary_on_hide_data_icon"
+			   android:summaryOff="@string/summary_off_hide_data_icon"
+		/>
+		<CheckBoxPreference
+			   android:key="pref_hide_bluetooth_icon"
+			   android:title="@string/title_hide_bluetooth_icon"
+			   android:summaryOn="@string/summary_on_hide_bluetooth_icon"
+			   android:summaryOff="@string/summary_off_hide_bluetooth_icon"
+		/>
+		<CheckBoxPreference
+			   android:key="pref_hide_battery_icon"
+			   android:title="@string/title_hide_battery_icon"
+			   android:summaryOn="@string/summary_on_hide_battery_icon"
+			   android:summaryOff="@string/summary_off_hide_battery_icon"
+		/>
+		<CheckBoxPreference
+			   android:key="pref_hide_sync_icon"
+			   android:title="@string/title_hide_sync_icon"
+			   android:summaryOn="@string/summary_on_hide_sync_icon"
+			   android:summaryOff="@string/summary_off_hide_sync_icon"
+		/>
+		<CheckBoxPreference
+			   android:key="pref_hide_gps_icon"
+			   android:title="@string/title_hide_gps_icon"
+			   android:summaryOn="@string/summary_on_hide_gps_icon"
+			   android:summaryOff="@string/summary_off_hide_gps_icon"
+		/>
+		<CheckBoxPreference
+			   android:key="pref_hide_wifi_icon"
+			   android:title="@string/title_hide_wifi_icon"
+			   android:summaryOn="@string/summary_on_hide_wifi_icon"
+			   android:summaryOff="@string/summary_off_hide_wifi_icon"
+		/>
+		<CheckBoxPreference
+			   android:key="pref_hide_signal_icon"
+			   android:title="@string/title_hide_signal_icon"
+			   android:summaryOn="@string/summary_on_hide_signal_icon"
+			   android:summaryOff="@string/summary_off_hide_signal_icon"
+		/>
+		<Preference android:key="pref_clear_icon_flags" 
+		        android:title="@string/title_clear_flags_pref"
+		        android:summary="@string/summary_clear_flags_pref"
+		/>
+
+	</PreferenceCategory>
+
 </PreferenceScreen>
