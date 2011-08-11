@@ -20,6 +20,7 @@
 <resources>
     <!-- Common strings -->
     <string name="app_label">Evervolv Settings</string>
+    <string name="toast_reboot_required">Setting requires a reboot!</string>
 
     <!-- New Settings strings added for Evervolv Customization -->
     <string name="custom_settings">Customizable Settings</string>

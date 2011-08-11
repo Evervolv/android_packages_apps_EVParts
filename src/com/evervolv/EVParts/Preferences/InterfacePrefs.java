@@ -161,21 +161,21 @@ public class InterfacePrefs extends PreferenceActivity implements OnPreferenceCh
         if (preference == mHideClock) {
         	value = mHideClock.isChecked();
     	    	Settings.System.putInt(getContentResolver(), Settings.System.HIDE_CLOCK, value ? 1 : 0);
-    	    	
     	    	if (value) {
     	    		mHideAmPm.setEnabled(false);
     	    	} else if (!value) {
     	    		mHideAmPm.setEnabled(true);
     	    	}
-    	    	
     	} else if (preference == mHideAmPm) {
     		value = mHideAmPm.isChecked();
     	    	Settings.System.putInt(getContentResolver(), 
     	    			Settings.System.HIDE_CLOCK_AMPM, value ? 1 : 0);
+    	    	Toast.makeText(this, R.string.toast_reboot_required, Toast.LENGTH_LONG).show();
     	} else if (preference == mUseTransparentStatusBar) {
     		value = mUseTransparentStatusBar.isChecked();
     	    	Settings.System.putInt(getContentResolver(), 
     	    			Settings.System.USE_TRANSPARENT_STATUSBAR, value ? 1 : 0);
+    	    	Toast.makeText(this, R.string.toast_reboot_required, Toast.LENGTH_LONG).show();
     	} else if (preference == mUseScreenOnAnim) {
     		value = mUseScreenOnAnim.isChecked();
             	Settings.System.putInt(getContentResolver(), 
@@ -258,7 +258,9 @@ public class InterfacePrefs extends PreferenceActivity implements OnPreferenceCh
     
     public boolean onPreferenceChange(Preference preference, Object objValue) {
         if (preference == mBatteryOption) {
-        	Settings.System.putInt(getContentResolver(), Settings.System.BATTERY_STYLE, Integer.valueOf((String) objValue));
+        	Settings.System.putInt(getContentResolver(), Settings.System.BATTERY_STYLE, 
+        			Integer.valueOf((String) objValue));
+	    	Toast.makeText(this, R.string.toast_reboot_required, Toast.LENGTH_LONG).show();
         }
         return true;
     }

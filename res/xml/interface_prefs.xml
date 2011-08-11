@@ -48,7 +48,7 @@
 			   android:key="pref_hide_ampm"
 			   android:title="@string/title_hide_ampm"
 			   android:summaryOn="@string/summary_on_hide_ampm"
-			   android:summaryOff="@string/summary_on_hide_ampm"
+			   android:summaryOff="@string/summary_off_hide_ampm"
 		/>
 		<CheckBoxPreference
 			android:key="pref_use_transparent_statusbar"
