@@ -71,7 +71,7 @@
     <LinearLayout android:id="@+id/linearLayout4" android:layout_height="wrap_content" android:layout_width="match_parent">
         <ImageView android:src="@drawable/toolbox_footer"
 		   android:id="@+id/tool_footer"
-		   android:layout_width="match_parent"
+		   android:layout_width="wrap_content"
 		   android:layout_height="wrap_content"
 		   android:layout_gravity="bottom"></ImageView>
     </LinearLayout>
