@@ -19,12 +19,16 @@
 -->
 <resources>
     <!-- Common strings -->
-    <string name="app_label">Evervolv Settings</string>
+    <string name="app_label">Evervolv Toolbox</string>
     <string name="toast_reboot_required">Setting requires a reboot!</string>
 
     <!-- New Settings strings added for Evervolv Customization -->
     <string name="custom_settings">Customizable Settings</string>
-
+    <string name="button_creo_settings">Creo Settings</string>
+    <string name="button_lockscreen_settings">Lockscreen settings</string>
+    <string name="button_interface_settings">Interface settings</string>
+    <string name="button_advanced_settings">Advanced settings</string>
+    <string name="button_under_dev">Under development</string>
 
     <!-- Lockscreen Preferences -->
     <string name="preferences_lockscreen">Lockscreen Settings</string>

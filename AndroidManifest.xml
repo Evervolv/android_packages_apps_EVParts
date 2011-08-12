@@ -11,12 +11,15 @@
     <application android:label="@string/app_label"
             android:icon="@drawable/app_icon">
 
-        <activity android:name="EvervolvSettings">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
+	<activity android:name=".EvervolvToolbox"
+	          android:label="@string/app_label"
+		  android:theme="@android:style/Theme.NoTitleBar">
+	    <intent-filter>
+	        <action android:name="android.intent.action.MAIN" />
+	        <category android:name="android.intent.category.LAUNCHER" />
+	    </intent-filter>
+    	</activity>
+
         <activity android:name=".Preferences.LockscreenPrefs" android:label="@string/preferences_lockscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

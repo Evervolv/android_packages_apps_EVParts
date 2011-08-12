@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_height="match_parent" android:id="@+id/linearLayout1" android:orientation="vertical" android:layout_width="match_parent">
+    <LinearLayout android:id="@+id/linearLayout2" android:layout_height="wrap_content" android:layout_width="match_parent">
+        <ImageView android:src="@drawable/toolbox_header" android:id="@+id/tool_header" android:layout_width="match_parent" android:layout_height="wrap_content"></ImageView>
+    </LinearLayout>
+    <LinearLayout android:id="@+id/linearLayout3" android:layout_height="wrap_content" android:layout_width="match_parent">
+	    <RelativeLayout android:id="@+id/relativeLayout1" android:layout_height="wrap_content" android:layout_width="match_parent">
+	    
+	        <Button android:id="@+id/btn_creo_settings"
+	        	android:layout_alignParentLeft="true"
+	        	android:text="@string/button_creo_settings"
+	        	android:layout_height="wrap_content"
+	        	android:layout_width="match_parent"
+	        	android:layout_alignParentTop="true"
+	        	android:background="@drawable/btn_toolbox"
+	        	android:layout_marginBottom="10dip"
+	        	android:textColor="#FF000000"
+	        	android:onClick="openCreoSettings">
+	        </Button>
+	        
+	        <Button android:id="@+id/btn_lock_settings"
+	        	android:layout_alignParentLeft="true"
+	        	android:text="@string/button_lockscreen_settings"
+	        	android:layout_height="wrap_content"
+	        	android:layout_width="match_parent"
+	        	android:layout_below="@+id/btn_creo_settings"
+	        	android:background="@drawable/btn_toolbox"
+	        	android:layout_marginBottom="10dip"
+	        	android:textColor="#FF000000"
+	        	android:onClick="openPrefLockscreen">
+	        </Button>
+	        
+	        <Button android:id="@+id/btn_interface_settings"
+		        android:layout_alignParentLeft="true"
+		        android:text="@string/button_interface_settings"
+		        android:layout_height="wrap_content"
+		        android:layout_width="match_parent"
+		        android:layout_below="@+id/btn_lock_settings"
+		        android:background="@drawable/btn_toolbox"
+		        android:layout_marginBottom="10dip"
+		        android:textColor="#FF000000"
+		        android:onClick="openPrefInterface">
+		    </Button>
+		    
+	        <Button android:id="@+id/btn_advanced_settings"
+		        android:layout_alignParentLeft="true"
+		        android:text="@string/button_advanced_settings"
+		        android:layout_height="wrap_content"
+		        android:layout_width="match_parent"
+		        android:layout_below="@+id/btn_interface_settings"
+		        android:background="@drawable/btn_toolbox"
+		        android:layout_marginBottom="10dip"
+		        android:textColor="#FF000000"
+		        android:onClick="openPrefAdvanced">
+	        </Button>
+	        
+	        <Button android:id="@+id/Button5"
+		        android:layout_alignParentLeft="true"
+		        android:text="@string/button_under_dev"
+		        android:layout_height="wrap_content"
+		        android:layout_width="match_parent"
+		        android:layout_below="@+id/btn_advanced_settings"
+		        android:background="@drawable/btn_toolbox"
+		        android:layout_marginBottom="10dip"
+		        android:textColor="#FF000000">
+	        </Button>
+	        
+	    </RelativeLayout>
+    </LinearLayout>
+    <LinearLayout android:id="@+id/linearLayout4" android:layout_height="wrap_content" android:layout_width="match_parent">
+        <ImageView android:src="@drawable/toolbox_footer"
+		   android:id="@+id/tool_footer"
+		   android:layout_width="match_parent"
+		   android:layout_height="wrap_content"
+		   android:layout_gravity="bottom"></ImageView>
+    </LinearLayout>
+</LinearLayout>
+
+
