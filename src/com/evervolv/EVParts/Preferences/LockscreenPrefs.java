@@ -28,6 +28,7 @@ public class LockscreenPrefs extends PreferenceActivity implements OnPreferenceC
 	private static final String CARRIER_CAP_PREF = "pref_carrier_caption";
 	private static final String LOCKSCREEN_STYLE_PREF = "pref_lockscreen_style";
     private static final String TRACKBALL_UNLOCK_PREF = "pref_trackball_unlock";
+    private static final String VOLBTN_MUSIC_CTRL_PREF = "pref_volbtn_music_controls";
     private static final String GENERAL_CATEGORY = "pref_lockscreen_general_category";
     
     private static final int LOCK_STYLE_TABS   = 1;
@@ -36,6 +37,7 @@ public class LockscreenPrefs extends PreferenceActivity implements OnPreferenceC
 	private EditTextPreference mCarrierCaption;
 	private ListPreference mLockscreenStyle;
 	private CheckBoxPreference mTrackballUnlockPref;
+	private CheckBoxPreference mVolBtnMusicCtrlPref;
 
 	private static final String TAG = "EVParts";
 	private static final boolean DEBUG = false;
@@ -61,6 +63,12 @@ public class LockscreenPrefs extends PreferenceActivity implements OnPreferenceC
         mTrackballUnlockPref = (CheckBoxPreference) prefSet.findPreference(TRACKBALL_UNLOCK_PREF);
         mTrackballUnlockPref.setChecked(Settings.System.getInt(getContentResolver(),
                 Settings.System.TRACKBALL_UNLOCK_SCREEN, 0) == 1);
+
+        /* Volume button music controls */
+        mVolBtnMusicCtrlPref = (CheckBoxPreference) prefSet.findPreference(VOLBTN_MUSIC_CTRL_PREF);
+        mVolBtnMusicCtrlPref.setChecked(Settings.System.getInt(getContentResolver(),
+                Settings.System.VOLBTN_MUSIC_CONTROLS, 1) == 1);
+
 		PreferenceCategory generalCategory = (PreferenceCategory) prefSet
     	.findPreference(GENERAL_CATEGORY);
 		
@@ -78,8 +86,12 @@ public class LockscreenPrefs extends PreferenceActivity implements OnPreferenceC
             Settings.System.putInt(getContentResolver(), Settings.System.TRACKBALL_UNLOCK_SCREEN,
                     value ? 1 : 0);
             return true;
-        }
-        
+        } else if (preference == mVolBtnMusicCtrlPref) {
+            value = mVolBtnMusicCtrlPref.isChecked();
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.VOLBTN_MUSIC_CONTROLS, value ? 1 : 0);
+            return true;
+	}
         return true;
     }
 	

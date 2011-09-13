@@ -47,6 +47,9 @@
     <string name="summary_on_trackball_unlock">Trackball unlock will be used</string>
     <string name="summary_off_trackball_unlock">Trackball unlock will not be used</string>
 
+        <!-- Volume button music controls -->
+    <string name="pref_volbtn_music_controls_title">Volume button music controls</string>
+    <string name="pref_volbtn_music_controls_summary">Seek music tracks when long-pressing the volume buttons while screen off</string>
 
     <!-- Interface Preferences -->
     <string name="preferences_interface">Interface settings</string>
