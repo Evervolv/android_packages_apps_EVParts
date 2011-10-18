@@ -11,14 +11,7 @@
 			android:dialogTitle="Enter lockscreen caption."
 		/>
 
-		<ListPreference 
-			android:key="pref_lockscreen_style"
-			android:dialogTitle="@string/dialog_title_lockscreen_style"
-			android:title="@string/title_general_lockscreen_style"
-			android:summary="@string/summary_lockscreen_style"
-			android:entries="@array/lockscreen_styles_entries" 
-			android:entryValues="@array/lockscreen_styles_values" 
-		/>
+
 		<CheckBoxPreference 
 			android:key="pref_trackball_unlock"
 			android:title="@string/title_trackball_unlock"
@@ -30,5 +23,33 @@
 			android:title="@string/pref_volbtn_music_controls_title"
 		        android:summary="@string/pref_volbtn_music_controls_summary"
 		/>
+	</PreferenceCategory>
+    	<PreferenceCategory
+            	android:title="@string/title_lockscreen_category_general"
+		android:key="pref_lockscreen_general_lockscreen_style"	
+	>
+
+		<ListPreference 
+			android:key="pref_lockscreen_style"
+			android:dialogTitle="@string/dialog_title_lockscreen_style"
+			android:title="@string/title_general_lockscreen_style"
+			android:summary="@string/summary_lockscreen_style"
+			android:entries="@array/lockscreen_styles_entries" 
+			android:entryValues="@array/lockscreen_styles_values" 
+		/>
+
+		<Preference android:key="pref_lockscreen_custom_app_activity"
+		    	android:title="@string/pref_lockscreen_custom_app_activity_title"
+		/>
+
+		<ListPreference 
+			android:key="pref_lockscreen_ring_location"
+			android:dialogTitle="@string/dialog_title_lockscreen_ring_location"
+			android:title="@string/title_general_lockscreen_ring_location"
+			android:summary="@string/summary_lockscreen_ring_location"
+			android:entries="@array/lockscreen_ring_locations_entries" 
+			android:entryValues="@array/lockscreen_ring_locations_values" 
+		/>
+
 	</PreferenceCategory>
 </PreferenceScreen>
