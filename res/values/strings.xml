@@ -33,8 +33,8 @@
     <!-- Lockscreen Preferences -->
     <string name="preferences_lockscreen">Lockscreen Settings</string>
     <string name="preferences_lockscreen_summary">Customize your lockscreen</string>
-    <string name="title_lockscreen_category_general">General lockscreen settings</string>
-    <string name="title_lockscreen_category_lockscreen_style">Lockscreen style settings</string>
+    <string name="title_lockscreen_category_general">General settings</string>
+    <string name="title_lockscreen_category_style">Style settings</string>
 
 	<!-- Carrier caption -->
     <string name="title_carrier_caption">Lockscreen Carrier Caption</string>

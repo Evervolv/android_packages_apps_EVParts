@@ -25,7 +25,7 @@
 		/>
 	</PreferenceCategory>
     	<PreferenceCategory
-            	android:title="@string/title_lockscreen_category_general"
+		android:title="@string/title_lockscreen_category_style"
 		android:key="pref_lockscreen_general_lockscreen_style"	
 	>
 
